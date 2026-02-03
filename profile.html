@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Profile - Grow like a Pro! | AI Career Guidance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --primary-dark: #4338CA;
+      --secondary: #10B981;
+      --secondary-dark: #059669;
+      --accent: #F59E0B;
+      --accent-dark: #D97706;
+      --background: #F9FAFB;
+      --text: #1F2937;
+    }
+
+    body {
+      color: var(--text);
+      background-color: var(--background);
+      font-family: 'Inter', sans-serif;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--secondary-dark);
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 0.5rem 0.75rem;
+      border: 1px solid #D1D5DB;
+      border-radius: 0.375rem;
+      font-size: 0.875rem;
+      transition: border-color 0.2s;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    .profile-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-header {
+      background-color: var(--primary);
+      background-image: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      border-radius: 0.5rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .tab-button {
+      padding: 0.75rem 1rem;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .tab-button.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+
+    .tab-button:hover:not(.active) {
+      color: var(--primary-dark);
+      border-bottom-color: #E5E7EB;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="dashboard.html" class="flex items-center">
+            <span style="color: var(--primary);" class="font-bold text-xl">Grow like a Pro!</span>
+          </a>
+        </div>
+
+        <!-- Desktop menu -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Home</a>
+          <a href="dashboard.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Dashboard</a>
+          <a href="assessment.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Assessment</a>
+          <a href="courses.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Courses</a>
+          <a href="jobs.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Jobs</a>
+
+          <!-- User dropdown -->
+          <div class="ml-4 relative">
+            <div>
+              <button id="user-menu-button" class="flex items-center text-sm font-medium text-gray-700 hover:text-primary focus:outline-none">
+                <span id="user-name">User</span>
+                <svg class="ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+
+            <div id="user-dropdown" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1">
+              <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 bg-gray-100">Your Profile</a>
+              <a href="settings.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+              <button id="logout-button" class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-primary focus:outline-none">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Home</a>
+        <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Dashboard</a>
+        <a href="assessment.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Assessment</a>
+        <a href="courses.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Courses</a>
+        <a href="jobs.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Jobs</a>
+        <a href="profile.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary">Profile</a>
+        <a href="settings.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Settings</a>
+        <button id="mobile-logout-button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Sign out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container mx-auto px-4 py-8">
+      <!-- Profile Header -->
+      <div class="profile-header mb-8">
+        <div class="flex flex-col md:flex-row items-center md:items-end">
+          <div class="mb-4 md:mb-0 md:mr-6">
+            <div id="profile-avatar-container" class="profile-avatar flex items-center justify-center bg-primary text-white overflow-hidden">
+              <span id="profile-avatar-text">Profile Avatar</span>
+            </div>
+          </div>
+          <div class="text-center md:text-left">
+            <h1 id="profile-name" class="text-3xl font-bold mb-1">User Name</h1>
+            <p id="profile-email" class="text-white/80 mb-2">user@example.com</p>
+            <p id="profile-type" class="inline-block bg-white/20 px-3 py-1 rounded-full text-sm">Professional</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Tabs -->
+      <div class="mb-8">
+        <div class="border-b border-gray-200">
+          <nav class="flex -mb-px">
+            <button class="tab-button active" data-tab="personal-info">Personal Information</button>
+            <button class="tab-button" data-tab="career-info">Career Information</button>
+            <button class="tab-button" data-tab="activity">Activity History</button>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="tab-content active" id="personal-info">
+        <div class="card mb-6">
+          <h2 class="text-xl font-semibold mb-4">Personal Information</h2>
+          <form id="personal-info-form">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <input type="text" id="full-name" name="full-name" class="input-field">
+              </div>
+              <div>
+                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                <input type="email" id="email" name="email" class="input-field" disabled>
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                <input type="tel" id="phone" name="phone" class="input-field">
+              </div>
+              <div>
+                <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+                <input type="text" id="location" name="location" class="input-field" placeholder="City, Country">
+              </div>
+            </div>
+            <div class="mb-6">
+              <label for="avatar-upload" class="block text-sm font-medium text-gray-700 mb-1">Profile Picture</label>
+              <div class="flex items-center">
+                <div class="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center mr-4 overflow-hidden">
+                  <span id="avatar-preview-text">Avatar</span>
+                  <img id="avatar-preview" class="hidden w-full h-full object-cover" alt="Avatar Preview">
+                </div>
+                <div>
+                  <input type="file" id="avatar-upload" name="avatar-upload" accept="image/*" class="hidden">
+                  <button type="button" id="avatar-upload-btn" class="btn-secondary text-sm">Upload Photo</button>
+                  <p class="text-xs text-gray-500 mt-1">JPG, PNG or GIF. Max size 1MB.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-6">
+              <label for="bio" class="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+              <textarea id="bio" name="bio" rows="4" class="input-field" placeholder="Tell us about yourself..."></textarea>
+            </div>
+            <div class="flex justify-end">
+              <button type="submit" class="btn-primary">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="tab-content" id="career-info">
+        <div class="card mb-6">
+          <h2 class="text-xl font-semibold mb-4">Career Information</h2>
+          <form id="career-info-form">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label for="current-position" class="block text-sm font-medium text-gray-700 mb-1">Current Position</label>
+                <input type="text" id="current-position" name="current-position" class="input-field">
+              </div>
+              <div>
+                <label for="company" class="block text-sm font-medium text-gray-700 mb-1">Company/Organization</label>
+                <input type="text" id="company" name="company" class="input-field">
+              </div>
+              <div>
+                <label for="industry" class="block text-sm font-medium text-gray-700 mb-1">Industry</label>
+                <select id="industry" name="industry" class="input-field">
+                  <option value="">Select Industry</option>
+                  <option value="technology">Technology</option>
+                  <option value="healthcare">Healthcare</option>
+                  <option value="finance">Finance</option>
+                  <option value="education">Education</option>
+                  <option value="manufacturing">Manufacturing</option>
+                  <option value="retail">Retail</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label for="experience" class="block text-sm font-medium text-gray-700 mb-1">Years of Experience</label>
+                <select id="experience" name="experience" class="input-field">
+                  <option value="">Select Experience</option>
+                  <option value="0-1">0-1 years</option>
+                  <option value="1-3">1-3 years</option>
+                  <option value="3-5">3-5 years</option>
+                  <option value="5-10">5-10 years</option>
+                  <option value="10+">10+ years</option>
+                </select>
+              </div>
+            </div>
+            <div class="mb-6">
+              <label for="skills" class="block text-sm font-medium text-gray-700 mb-1">Skills (comma separated)</label>
+              <input type="text" id="skills" name="skills" class="input-field" placeholder="e.g., JavaScript, Project Management, Communication">
+            </div>
+
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-gray-700 mb-3">Social Media Links</label>
+              <div class="space-y-3">
+                <div class="flex items-center">
+                  <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/>
+                    </svg>
+                  </div>
+                  <input type="url" id="linkedin-url" name="linkedin-url" placeholder="LinkedIn URL" class="input-field">
+                </div>
+                <div class="flex items-center">
+                  <div class="w-8 h-8 bg-blue-400 rounded-full flex items-center justify-center mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                    </svg>
+                  </div>
+                  <input type="url" id="twitter-url" name="twitter-url" placeholder="Twitter URL" class="input-field">
+                </div>
+                <div class="flex items-center">
+                  <div class="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                  </div>
+                  <input type="url" id="github-url" name="github-url" placeholder="GitHub URL" class="input-field">
+                </div>
+                <div class="flex items-center">
+                  <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M7 11v2.4h3.97c-.16 1.029-1.2 3.02-3.97 3.02-2.39 0-4.34-1.979-4.34-4.42 0-2.44 1.95-4.42 4.34-4.42 1.36 0 2.27.58 2.79 1.08l1.9-1.83c-1.22-1.14-2.8-1.83-4.69-1.83-3.87 0-7 3.13-7 7s3.13 7 7 7c4.04 0 6.721-2.84 6.721-6.84 0-.46-.051-.81-.111-1.16h-6.61zm0 0 17 2h-3v3h-2v-3h-3v-2h3v-3h2v3h3v2z" fill-rule="evenodd" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <input type="url" id="portfolio-url" name="portfolio-url" placeholder="Portfolio URL" class="input-field">
+                </div>
+              </div>
+            </div>
+            <div class="flex justify-end">
+              <button type="submit" class="btn-primary">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="tab-content" id="activity">
+        <div class="card mb-6">
+          <h2 class="text-xl font-semibold mb-4">Activity History</h2>
+          <div id="activity-list" class="space-y-4">
+            <!-- Activity items will be added dynamically -->
+            <p class="text-gray-500 text-center py-4">No activity recorded yet.</p>
+          </div>
+        </div>
+
+        <div class="card mb-6">
+          <h2 class="text-xl font-semibold mb-4">Skills Visualization</h2>
+          <div class="mb-6">
+            <canvas id="skills-chart" width="400" height="300"></canvas>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h3 class="font-medium mb-2">Technical Skills</h3>
+              <div id="technical-skills" class="space-y-2">
+                <!-- Technical skills will be added dynamically -->
+                <div class="flex items-center">
+                  <span class="text-sm w-24">JavaScript</span>
+                  <div class="flex-grow bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-primary h-2.5 rounded-full" style="width: 85%"></div>
+                  </div>
+                  <span class="text-sm ml-2">85%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-sm w-24">HTML/CSS</span>
+                  <div class="flex-grow bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-primary h-2.5 rounded-full" style="width: 90%"></div>
+                  </div>
+                  <span class="text-sm ml-2">90%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-sm w-24">Python</span>
+                  <div class="flex-grow bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-primary h-2.5 rounded-full" style="width: 70%"></div>
+                  </div>
+                  <span class="text-sm ml-2">70%</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-medium mb-2">Soft Skills</h3>
+              <div id="soft-skills" class="space-y-2">
+                <!-- Soft skills will be added dynamically -->
+                <div class="flex items-center">
+                  <span class="text-sm w-24">Communication</span>
+                  <div class="flex-grow bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-secondary h-2.5 rounded-full" style="width: 95%"></div>
+                  </div>
+                  <span class="text-sm ml-2">95%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-sm w-24">Teamwork</span>
+                  <div class="flex-grow bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-secondary h-2.5 rounded-full" style="width: 85%"></div>
+                  </div>
+                  <span class="text-sm ml-2">85%</span>
+                </div>
+                <div class="flex items-center">
+                  <span class="text-sm w-24">Leadership</span>
+                  <div class="flex-grow bg-gray-200 rounded-full h-2.5">
+                    <div class="bg-secondary h-2.5 rounded-full" style="width: 80%"></div>
+                  </div>
+                  <span class="text-sm ml-2">80%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 class="text-xl font-semibold mb-4">Assessment Results</h2>
+          <div id="assessment-results" class="space-y-4">
+            <!-- Assessment results will be added dynamically -->
+            <p class="text-gray-500 text-center py-4">No assessment results available yet. Complete an assessment to see your results here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Grow like a Pro!</h3>
+          <p class="text-gray-300">
+            AI-powered career guidance for students, job seekers, and professionals.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="text-gray-300 hover:text-white transition-colors">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="dashboard.html" class="text-gray-300 hover:text-white transition-colors">
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="assessment.html" class="text-gray-300 hover:text-white transition-colors">
+                Assessment
+              </a>
+            </li>
+            <li>
+              <a href="courses.html" class="text-gray-300 hover:text-white transition-colors">
+                Courses
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact</h3>
+          <p class="text-gray-300 mb-2">
+            Have questions? Reach out to us.
+          </p>
+          <p class="text-gray-300">
+            Email: support@growlikeapro.com
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
+        <p>&copy; 2023 Grow like a Pro! All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HBSCW05KD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HBSCW05KD');
+</script>

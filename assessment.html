@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills Assessment - Grow like a Pro! | AI Career Guidance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="dashboard.html" class="flex items-center">
+            <span style="color: var(--primary);" class="font-bold text-xl">Grow like a Pro!</span>
+          </a>
+        </div>
+
+        <!-- Desktop menu -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Home</a>
+          <a href="dashboard.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Dashboard</a>
+          <a href="assessment.html" class="px-3 py-2 rounded-md text-sm font-medium" style="color: var(--primary); font-weight: 600;">Assessment</a>
+          <a href="courses.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Courses</a>
+          <a href="jobs.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Jobs</a>
+
+          <!-- User dropdown -->
+          <div class="ml-4 relative">
+            <div>
+              <button id="user-menu-button" class="flex items-center text-sm font-medium text-gray-700 hover:text-primary focus:outline-none">
+                <span id="user-name">User</span>
+                <svg class="ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+
+            <div id="user-dropdown" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1">
+              <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
+              <a href="settings.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+              <button id="logout-button" class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-primary focus:outline-none">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Home</a>
+        <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Dashboard</a>
+        <a href="assessment.html" class="block px-3 py-2 rounded-md text-base font-medium" style="color: var(--primary); font-weight: 600;">Assessment</a>
+        <a href="courses.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Courses</a>
+        <a href="jobs.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Jobs</a>
+        <a href="profile.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Profile</a>
+        <a href="settings.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Settings</a>
+        <button id="mobile-logout-button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Sign out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container mx-auto px-4 py-8">
+      <!-- Assessment Section -->
+      <section id="assessment">
+        <h1 class="text-3xl font-bold text-center mb-2">Technical Skills Assessment</h1>
+        <p class="text-lg text-center text-gray-600 mb-8">
+          Test your technical knowledge and programming skills with these assessment questions
+        </p>
+
+        <div class="max-w-3xl mx-auto">
+          <div class="card">
+            <div class="mb-6">
+              <div class="relative h-2 rounded-full bg-gray-200 mb-2">
+                <div id="progress-bar" class="absolute top-0 left-0 h-2 rounded-full" style="background-color: var(--primary); width: 25%;"></div>
+              </div>
+              <p id="progress-text" class="text-center text-sm text-gray-500">
+                Step 1 of 4: Domain Selection
+              </p>
+            </div>
+
+            <form id="assessment-form">
+              <div id="domain-selection">
+                <h2 class="text-xl font-semibold mb-4">Select Your Knowledge Domains</h2>
+                <p class="text-gray-600 mb-6">
+                  Please select the domains you have knowledge in. We'll customize your assessment based on your selections.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <div class="p-4 border rounded-md hover:shadow-md transition-shadow">
+                    <label class="flex items-start">
+                      <input type="checkbox" name="domain" value="web_development" class="mt-1 mr-3">
+                      <div>
+                        <span class="font-medium block mb-1">Web Development</span>
+                        <span class="text-sm text-gray-600">HTML, CSS, JavaScript, React, Angular, Vue, etc.</span>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="p-4 border rounded-md hover:shadow-md transition-shadow">
+                    <label class="flex items-start">
+                      <input type="checkbox" name="domain" value="backend_development" class="mt-1 mr-3">
+                      <div>
+                        <span class="font-medium block mb-1">Backend Development</span>
+                        <span class="text-sm text-gray-600">Node.js, Python, Java, C#, PHP, Databases, etc.</span>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="p-4 border rounded-md hover:shadow-md transition-shadow">
+                    <label class="flex items-start">
+                      <input type="checkbox" name="domain" value="data_science" class="mt-1 mr-3">
+                      <div>
+                        <span class="font-medium block mb-1">Data Science & Analytics</span>
+                        <span class="text-sm text-gray-600">Python, R, SQL, Machine Learning, Statistics, etc.</span>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="p-4 border rounded-md hover:shadow-md transition-shadow">
+                    <label class="flex items-start">
+                      <input type="checkbox" name="domain" value="mobile_development" class="mt-1 mr-3">
+                      <div>
+                        <span class="font-medium block mb-1">Mobile Development</span>
+                        <span class="text-sm text-gray-600">Android, iOS, React Native, Flutter, etc.</span>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="p-4 border rounded-md hover:shadow-md transition-shadow">
+                    <label class="flex items-start">
+                      <input type="checkbox" name="domain" value="devops" class="mt-1 mr-3">
+                      <div>
+                        <span class="font-medium block mb-1">DevOps & Cloud</span>
+                        <span class="text-sm text-gray-600">AWS, Azure, Docker, Kubernetes, CI/CD, etc.</span>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="p-4 border rounded-md hover:shadow-md transition-shadow">
+                    <label class="flex items-start">
+                      <input type="checkbox" name="domain" value="ui_ux" class="mt-1 mr-3">
+                      <div>
+                        <span class="font-medium block mb-1">UI/UX Design</span>
+                        <span class="text-sm text-gray-600">User Research, Wireframing, Prototyping, Design Systems, etc.</span>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="p-4 border rounded-md hover:shadow-md transition-shadow">
+                    <label class="flex items-start">
+                      <input type="checkbox" name="domain" value="cybersecurity" class="mt-1 mr-3">
+                      <div>
+                        <span class="font-medium block mb-1">Cybersecurity</span>
+                        <span class="text-sm text-gray-600">Network Security, Ethical Hacking, Security Protocols, etc.</span>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="p-4 border rounded-md hover:shadow-md transition-shadow">
+                    <label class="flex items-start">
+                      <input type="checkbox" name="domain" value="project_management" class="mt-1 mr-3">
+                      <div>
+                        <span class="font-medium block mb-1">Project Management</span>
+                        <span class="text-sm text-gray-600">Agile, Scrum, Kanban, Project Planning, etc.</span>
+                      </div>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <svg class="h-5 w-5 text-yellow-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                      </svg>
+                    </div>
+                    <div class="ml-3">
+                      <p class="text-sm text-yellow-700">
+                        Please select at least one domain to proceed with the assessment.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- All domain sections will be dynamically created based on user selection -->
+
+              <div class="flex justify-between mt-6">
+                <div></div>
+                <button
+                  type="button"
+                  id="domain-next-btn"
+                  class="ml-auto px-4 py-2 rounded-md hover:bg-primary/90 btn-primary"
+                  onclick="processDomainSelection()"
+                >
+                  Next
+                </button>
+              </div>
+
+
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Section (Hidden by default) -->
+      <section id="recommendations" class="hidden">
+        <h1 class="text-3xl font-bold text-center mb-2">Your Domain-Specific Skills Assessment Results</h1>
+        <p class="text-lg text-center text-gray-600 mb-8">
+          Here's how you performed on the technical, aptitude, and soft skills assessment for your selected domains
+        </p>
+
+        <div class="card max-w-4xl mx-auto mb-12">
+          <h2 class="text-2xl font-bold mb-4">Assessment Summary</h2>
+          <div class="mb-6">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-lg font-medium">Overall Score:</span>
+              <span id="overall-score" class="text-lg font-bold text-primary">0/0 (0%)</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-2.5">
+              <div id="results-progress-bar" class="bg-primary h-2.5 rounded-full" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <p class="text-lg mb-4">Thank you for completing the skills assessment. Below is a summary of your performance in the domains you selected.</p>
+
+          <div class="mb-6">
+            <h3 class="font-semibold mb-3">Domains Assessed:</h3>
+            <ul id="assessed-domains-list" class="list-disc pl-5">
+              <!-- This will be populated dynamically -->
+            </ul>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+            <div class="bg-gray-50 p-4 rounded-md">
+              <h3 class="font-semibold mb-2">Technical Skills</h3>
+              <div class="flex items-center justify-between">
+                <span>Overall Score:</span>
+                <span id="technical-score" class="font-bold">-</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-md">
+              <h3 class="font-semibold mb-2">Aptitude</h3>
+              <div class="flex items-center justify-between">
+                <span>Overall Score:</span>
+                <span id="aptitude-score" class="font-bold">-</span>
+              </div>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-md">
+              <h3 class="font-semibold mb-2">Soft Skills</h3>
+              <div class="flex items-center justify-between">
+                <span>Overall Score:</span>
+                <span id="soft-skills-score" class="font-bold">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-12">
+          <h2 class="section-title text-center mb-6">Detailed Results</h2>
+
+          <div class="card max-w-4xl mx-auto mb-6">
+            <h3 class="text-xl font-bold mb-4">Assessment Details</h3>
+            <div id="detailed-results">
+              <!-- This will be populated dynamically with the assessment results -->
+              <p class="text-gray-600 italic">Complete the assessment to see detailed results.</p>
+            </div>
+          </div>
+
+          <div class="card max-w-4xl mx-auto mb-6">
+            <h3 class="text-xl font-bold mb-4">Recommended Learning Resources</h3>
+            <div id="learning-resources" class="space-y-4">
+              <!-- This will be populated dynamically based on assessment results -->
+              <p class="text-gray-600 italic">Complete the assessment to see personalized learning resources.</p>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="text-center mb-12">
+          <button
+            onclick="showAssessment()"
+            class="btn-secondary"
+          >
+            Retake Assessment
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Grow like a Pro!</h3>
+          <p class="text-gray-300">
+            AI-powered career guidance for students, job seekers, and professionals.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="text-gray-300 hover:text-white transition-colors">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="dashboard.html" class="text-gray-300 hover:text-white transition-colors">
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="courses.html" class="text-gray-300 hover:text-white transition-colors">
+                Courses
+              </a>
+            </li>
+            <li>
+              <a href="jobs.html" class="text-gray-300 hover:text-white transition-colors">
+                Jobs
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact</h3>
+          <p class="text-gray-300 mb-2">
+            Have questions? Reach out to us.
+          </p>
+          <p class="text-gray-300">
+            Email: support@growlikeapro.com
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
+        <p>&copy; 2023 Grow like a Pro! All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Check if user is logged in
+    if (!auth.checkAuth()) {
+      window.location.href = 'login.html';
+    }
+
+    // Get current user
+    const currentUser = auth.getCurrentUser();
+
+    // Update user name in UI
+    const userName = currentUser.name || 'User';
+    const firstName = userName.split(' ')[0];
+    document.getElementById('user-name').textContent = firstName;
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // User dropdown toggle
+    const userMenuButton = document.getElementById('user-menu-button');
+    const userDropdown = document.getElementById('user-dropdown');
+
+    userMenuButton.addEventListener('click', () => {
+      userDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', (e) => {
+      if (!userMenuButton.contains(e.target) && !userDropdown.contains(e.target)) {
+        userDropdown.classList.add('hidden');
+      }
+    });
+
+    // Logout functionality
+    document.getElementById('logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    document.getElementById('mobile-logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    // Global variables to track assessment state
+    let selectedDomains = [];
+    let currentDomainIndex = 0;
+    let completedDomains = [];
+
+    // Process domain selection
+    function processDomainSelection() {
+      // Get all selected domains
+      const domainCheckboxes = document.querySelectorAll('input[name="domain"]:checked');
+
+      if (domainCheckboxes.length === 0) {
+        alert("Please select at least one domain to proceed with the assessment.");
+        return;
+      }
+
+      // Reset assessment state
+      selectedDomains = [];
+      currentDomainIndex = 0;
+      completedDomains = [];
+
+      // Store selected domains
+      domainCheckboxes.forEach(checkbox => {
+        selectedDomains.push(checkbox.value);
+      });
+
+      // Update progress indicator to show we're starting the assessment
+      updateProgressIndicator(1);
+
+      // Hide domain selection and show first domain questions
+      document.getElementById('domain-selection').classList.add('hidden');
+      showDomainQuestions(selectedDomains[0]);
+    }
+
+    // Show questions for a specific domain
+    function showDomainQuestions(domain) {
+      // Hide all domain sections
+      const domainSections = document.querySelectorAll('[id$="-section"]');
+      domainSections.forEach(section => {
+        section.classList.add('hidden');
+      });
+
+      // Check if the domain section exists
+      const domainSection = document.getElementById(`${domain}-section`);
+
+      if (domainSection) {
+        // Show the selected domain section
+        domainSection.classList.remove('hidden');
+      } else {
+        // If the domain section doesn't exist, create a generic one
+        createGenericDomainSection(domain);
+      }
+
+      // Update progress indicator with current domain progress
+      updateProgressIndicator(2);
+
+      // Scroll to top of form
+      document.getElementById('assessment-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Question banks for each domain
+    const questionBanks = {
+      web_development: {
+        technical: [
+          {
+            question: "What does the CSS property 'display: flex' do?",
+            options: [
+              "a) Makes an element invisible until hovered",
+              "b) Creates a flexible box layout for the element's children",
+              "c) Displays the element only on mobile devices",
+              "d) Makes the element float to the right of its container"
+            ],
+            answer: "b"
+          },
+          {
+            question: "Which of the following is NOT a JavaScript data type?",
+            options: [
+              "a) String",
+              "b) Boolean",
+              "c) Float",
+              "d) Object"
+            ],
+            answer: "c"
+          }
+        ],
+        aptitude: [
+          {
+            question: "A website needs to display 15 products per row. If there are 67 products in total, how many rows will be needed?",
+            options: [
+              "a) 4 rows",
+              "b) 5 rows",
+              "c) 4.5 rows",
+              "d) 5.5 rows"
+            ],
+            answer: "b"
+          }
+        ],
+        soft_skills: [
+          {
+            question: "A client is unhappy with the design of a website you've created, even though it meets all their initial requirements. What would be your approach?",
+            options: [
+              "a) Tell them they should have been clearer about what they wanted",
+              "b) Ask for specific feedback and propose solutions based on their concerns",
+              "c) Suggest they hire a different developer who better understands their vision",
+              "d) Explain that changing the design now would delay the project significantly"
+            ],
+            answer: "b"
+          }
+        ]
+      },
+      backend_development: {
+        technical: [
+          {
+            question: "What is the purpose of an ORM (Object-Relational Mapping) in backend development?",
+            options: [
+              "a) To optimize server response time",
+              "b) To convert between incompatible type systems in object-oriented programming languages",
+              "c) To map HTTP requests to controller actions",
+              "d) To translate between database records and programming language objects"
+            ],
+            answer: "d"
+          },
+          {
+            question: "Which of the following is NOT a common HTTP status code?",
+            options: [
+              "a) 200 OK",
+              "b) 404 Not Found",
+              "c) 500 Internal Server Error",
+              "d) 600 Server Timeout"
+            ],
+            answer: "d"
+          }
+        ],
+        aptitude: [
+          {
+            question: "If a database query takes 100ms to execute with 1,000 records, approximately how long would it take with 10,000 records if the algorithm is O(n)?",
+            options: [
+              "a) 200ms",
+              "b) 500ms",
+              "c) 1,000ms",
+              "d) 10,000ms"
+            ],
+            answer: "c"
+          }
+        ],
+        soft_skills: [
+          {
+            question: "You discover a security vulnerability in your company's API. What should you do first?",
+            options: [
+              "a) Fix it immediately without telling anyone to avoid causing panic",
+              "b) Document the issue and discuss it with your team lead or security team",
+              "c) Announce it publicly so users can take precautions",
+              "d) Ignore it if it seems minor and focus on feature development"
+            ],
+            answer: "b"
+          }
+        ]
+      },
+      data_science: {
+        technical: [
+          {
+            question: "Which of the following is NOT a supervised learning algorithm?",
+            options: [
+              "a) Linear Regression",
+              "b) K-means Clustering",
+              "c) Support Vector Machines",
+              "d) Random Forest"
+            ],
+            answer: "b"
+          },
+          {
+            question: "What is the purpose of cross-validation in machine learning?",
+            options: [
+              "a) To improve model accuracy by combining multiple models",
+              "b) To assess how well a model generalizes to independent data",
+              "c) To reduce training time by splitting data across multiple processors",
+              "d) To visualize model performance across different metrics"
+            ],
+            answer: "b"
+          }
+        ],
+        aptitude: [
+          {
+            question: "In a dataset, the mean is 50 and the standard deviation is 10. What percentage of data falls within one standard deviation of the mean in a normal distribution?",
+            options: [
+              "a) Approximately 50%",
+              "b) Approximately 68%",
+              "c) Approximately 95%",
+              "d) Approximately 99.7%"
+            ],
+            answer: "b"
+          }
+        ],
+        soft_skills: [
+          {
+            question: "You've built a predictive model that your non-technical stakeholders need to understand. What's the best approach?",
+            options: [
+              "a) Provide a detailed technical report with all model parameters",
+              "b) Create visualizations and use simple language to explain insights and limitations",
+              "c) Focus only on the accuracy metrics to prove the model works well",
+              "d) Let the stakeholders use the model without explanation"
+            ],
+            answer: "b"
+          }
+        ]
+      },
+      mobile_development: {
+        technical: [
+          {
+            question: "What is the difference between native and hybrid mobile applications?",
+            options: [
+              "a) Native apps are built for a specific platform, while hybrid apps can run on multiple platforms",
+              "b) Native apps require internet connection, while hybrid apps can work offline",
+              "c) Native apps are free, while hybrid apps are paid",
+              "d) Native apps are built by individuals, while hybrid apps are built by companies"
+            ],
+            answer: "a"
+          },
+          {
+            question: "Which of the following is NOT a mobile app development framework?",
+            options: [
+              "a) React Native",
+              "b) Flutter",
+              "c) Xamarin",
+              "d) Django"
+            ],
+            answer: "d"
+          }
+        ],
+        aptitude: [
+          {
+            question: "If a mobile app takes 5MB of storage and you need to store data for 100,000 users, approximately how much storage would you need?",
+            options: [
+              "a) 50GB",
+              "b) 500GB",
+              "c) 5TB",
+              "d) 50TB"
+            ],
+            answer: "b"
+          }
+        ],
+        soft_skills: [
+          {
+            question: "A user reports that your mobile app crashes on their device. What should be your first step?",
+            options: [
+              "a) Ask them to reinstall the app",
+              "b) Collect information about their device, OS version, and steps to reproduce the issue",
+              "c) Tell them to try a different device",
+              "d) Explain that the app works fine for most users"
+            ],
+            answer: "b"
+          }
+        ]
+      },
+      devops: {
+        technical: [
+          {
+            question: "What is the main purpose of containerization tools like Docker?",
+            options: [
+              "a) To create virtual machines",
+              "b) To package applications and their dependencies into containers",
+              "c) To monitor application performance",
+              "d) To automate code testing"
+            ],
+            answer: "b"
+          },
+          {
+            question: "Which of the following is NOT a CI/CD tool?",
+            options: [
+              "a) Jenkins",
+              "b) Travis CI",
+              "c) CircleCI",
+              "d) MongoDB"
+            ],
+            answer: "d"
+          }
+        ],
+        aptitude: [
+          {
+            question: "If a deployment process takes 10 minutes and you need to deploy 5 times a day, how much time is spent on deployments in a 5-day work week?",
+            options: [
+              "a) 50 minutes",
+              "b) 4 hours and 10 minutes",
+              "c) 5 hours",
+              "d) 25 hours"
+            ],
+            answer: "b"
+          }
+        ],
+        soft_skills: [
+          {
+            question: "Your team wants to implement a new deployment strategy, but some members are resistant to change. How would you address this?",
+            options: [
+              "a) Force the change and tell them to adapt",
+              "b) Explain the benefits, address concerns, and provide training",
+              "c) Let each team member choose their preferred deployment method",
+              "d) Abandon the new strategy to maintain team harmony"
+            ],
+            answer: "b"
+          }
+        ]
+      },
+      ui_ux: {
+        technical: [
+          {
+            question: "What is the purpose of a user persona in UX design?",
+            options: [
+              "a) To create fictional characters for marketing materials",
+              "b) To represent the development team in user meetings",
+              "c) To create a fictional representation of the target user to guide design decisions",
+              "d) To test the application before release"
+            ],
+            answer: "c"
+          },
+          {
+            question: "Which of the following is NOT a principle of good UI design?",
+            options: [
+              "a) Consistency",
+              "b) Feedback",
+              "c) Complexity",
+              "d) Visibility"
+            ],
+            answer: "c"
+          }
+        ],
+        aptitude: [
+          {
+            question: "If a usability test with 5 users finds 85% of the issues in an interface, approximately how many users would you need to find 99% of the issues?",
+            options: [
+              "a) 10 users",
+              "b) 15 users",
+              "c) 20 users",
+              "d) 50 users"
+            ],
+            answer: "b"
+          }
+        ],
+        soft_skills: [
+          {
+            question: "A stakeholder insists on a design change that you believe will harm the user experience. How do you respond?",
+            options: [
+              "a) Make the change without question since they're the stakeholder",
+              "b) Refuse to make the change and explain that you're the design expert",
+              "c) Present user research and data to explain your concerns, then work toward a compromise",
+              "d) Implement the change but document your objection in writing"
+            ],
+            answer: "c"
+          }
+        ]
+      },
+      cybersecurity: {
+        technical: [
+          {
+            question: "What is the purpose of a SQL injection attack?",
+            options: [
+              "a) To overload a database server with requests",
+              "b) To insert malicious SQL code that can read, modify, or delete database data",
+              "c) To create new database tables without permission",
+              "d) To improve database query performance"
+            ],
+            answer: "b"
+          },
+          {
+            question: "Which of the following is NOT a common authentication method?",
+            options: [
+              "a) Password-based authentication",
+              "b) Biometric authentication",
+              "c) Token-based authentication",
+              "d) Randomized authentication"
+            ],
+            answer: "d"
+          }
+        ],
+        aptitude: [
+          {
+            question: "If a password has 8 characters and each character can be one of 94 possible values, approximately how many possible password combinations exist?",
+            options: [
+              "a) 752",
+              "b) 7,520",
+              "c) 6 billion",
+              "d) 6 trillion"
+            ],
+            answer: "c"
+          }
+        ],
+        soft_skills: [
+          {
+            question: "You discover that a colleague has been using a shared password for multiple company accounts. What should you do?",
+            options: [
+              "a) Report them to management immediately for violating security protocols",
+              "b) Say nothing since it's not your responsibility",
+              "c) Privately discuss the security risks with them and suggest better practices",
+              "d) Change all the passwords yourself without telling them"
+            ],
+            answer: "c"
+          }
+        ]
+      },
+      project_management: {
+        technical: [
+          {
+            question: "What is the critical path in project management?",
+            options: [
+              "a) The most expensive sequence of tasks in a project",
+              "b) The sequence of tasks that must be completed on time for the project to finish on schedule",
+              "c) The sequence of tasks assigned to the project manager",
+              "d) The sequence of tasks with the highest risk"
+            ],
+            answer: "b"
+          },
+          {
+            question: "Which of the following is NOT one of the five phases in traditional project management?",
+            options: [
+              "a) Initiation",
+              "b) Planning",
+              "c) Automation",
+              "d) Closure"
+            ],
+            answer: "c"
+          }
+        ],
+        aptitude: [
+          {
+            question: "A project has 3 tasks that can be done in parallel. Task A takes 4 days, Task B takes 6 days, and Task C takes 5 days. What is the minimum time needed to complete all tasks?",
+            options: [
+              "a) 4 days",
+              "b) 5 days",
+              "c) 6 days",
+              "d) 15 days"
+            ],
+            answer: "c"
+          }
+        ],
+        soft_skills: [
+          {
+            question: "Your project is behind schedule. What should you do first?",
+            options: [
+              "a) Ask the team to work overtime until the project is back on track",
+              "b) Identify the causes of the delay and develop a recovery plan",
+              "c) Reduce the project scope without telling stakeholders",
+              "d) Blame the team members who are causing the delays"
+            ],
+            answer: "b"
+          }
+        ]
+      }
+    };
+
+    // Create a domain section with appropriate questions
+    function createGenericDomainSection(domain) {
+      // Get the parent element where we'll add the new section
+      const parentElement = document.getElementById('domain-selection').parentElement;
+
+      // Create the new section
+      const newSection = document.createElement('div');
+      newSection.id = `${domain}-section`;
+
+      // Get questions for this domain
+      const domainQuestions = questionBanks[domain] || {
+        technical: [
+          {
+            question: "Generic technical question for " + formatDomainName(domain),
+            options: [
+              "a) Option 1",
+              "b) Option 2",
+              "c) Option 3",
+              "d) Option 4"
+            ],
+            answer: "b"
+          },
+          {
+            question: "Another technical question for " + formatDomainName(domain),
+            options: [
+              "a) Option 1",
+              "b) Option 2",
+              "c) Option 3",
+              "d) Option 4"
+            ],
+            answer: "c"
+          }
+        ],
+        aptitude: [
+          {
+            question: "Generic aptitude question related to " + formatDomainName(domain),
+            options: [
+              "a) Option 1",
+              "b) Option 2",
+              "c) Option 3",
+              "d) Option 4"
+            ],
+            answer: "a"
+          }
+        ],
+        soft_skills: [
+          {
+            question: "Generic soft skills question in a " + formatDomainName(domain) + " context",
+            options: [
+              "a) Option 1",
+              "b) Option 2",
+              "c) Option 3",
+              "d) Option 4"
+            ],
+            answer: "b"
+          }
+        ]
+      };
+
+      // Build HTML for technical questions
+      let technicalQuestionsHTML = '';
+      domainQuestions.technical.forEach((q, index) => {
+        technicalQuestionsHTML += `
+          <div class="mb-5 p-4 bg-gray-50 rounded-md">
+            <p class="font-medium mb-2">${q.question}</p>
+            <div class="space-y-2">
+              ${q.options.map((option, i) => `
+                <label class="flex items-start">
+                  <input type="radio" name="${domain}_tech_q${index+1}" value="${String.fromCharCode(97 + i)}" class="mt-1 mr-2">
+                  <span>${option}</span>
+                </label>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      // Build HTML for aptitude questions
+      let aptitudeQuestionsHTML = '';
+      domainQuestions.aptitude.forEach((q, index) => {
+        aptitudeQuestionsHTML += `
+          <div class="mb-5 p-4 bg-gray-50 rounded-md">
+            <p class="font-medium mb-2">${q.question}</p>
+            <div class="space-y-2">
+              ${q.options.map((option, i) => `
+                <label class="flex items-start">
+                  <input type="radio" name="${domain}_apt_q${index+1}" value="${String.fromCharCode(97 + i)}" class="mt-1 mr-2">
+                  <span>${option}</span>
+                </label>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      // Build HTML for soft skills questions
+      let softSkillsQuestionsHTML = '';
+      domainQuestions.soft_skills.forEach((q, index) => {
+        softSkillsQuestionsHTML += `
+          <div class="mb-5 p-4 bg-gray-50 rounded-md">
+            <p class="font-medium mb-2">${q.question}</p>
+            <div class="space-y-2">
+              ${q.options.map((option, i) => `
+                <label class="flex items-start">
+                  <input type="radio" name="${domain}_soft_q${index+1}" value="${String.fromCharCode(97 + i)}" class="mt-1 mr-2">
+                  <span>${option}</span>
+                </label>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      });
+
+      // Add content to the section
+      newSection.innerHTML = `
+        <h2 class="text-xl font-semibold mb-4">${formatDomainName(domain)} Assessment</h2>
+
+        <!-- Technical Questions -->
+        <div class="mb-8">
+          <h3 class="font-medium text-gray-700 mb-3 pb-2 border-b">Technical Questions</h3>
+          ${technicalQuestionsHTML}
+        </div>
+
+        <!-- Aptitude Questions -->
+        <div class="mb-8">
+          <h3 class="font-medium text-gray-700 mb-3 pb-2 border-b">Aptitude Questions</h3>
+          ${aptitudeQuestionsHTML}
+        </div>
+
+        <!-- Soft Skills Questions -->
+        <div class="mb-8">
+          <h3 class="font-medium text-gray-700 mb-3 pb-2 border-b">Soft Skills Questions</h3>
+          ${softSkillsQuestionsHTML}
+        </div>
+
+        <div class="flex justify-between mt-6">
+          <button
+            type="button"
+            class="px-4 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300"
+            onclick="backToDomainSelection()"
+          >
+            Back to Domains
+          </button>
+          <button
+            type="button"
+            class="ml-auto px-4 py-2 rounded-md hover:bg-primary/90 btn-primary"
+            onclick="nextDomain('${domain}')"
+          >
+            Next
+          </button>
+        </div>
+      `;
+
+      // Add the new section to the parent element
+      parentElement.appendChild(newSection);
+    }
+
+    // Format domain name for display
+    function formatDomainName(domain) {
+      return domain.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    }
+
+    // Go to next domain or results
+    function nextDomain(currentDomain) {
+      // Mark current domain as completed
+      if (!completedDomains.includes(currentDomain)) {
+        completedDomains.push(currentDomain);
+      }
+
+      // Move to next domain or show results
+      currentDomainIndex++;
+
+      if (currentDomainIndex < selectedDomains.length) {
+        // Show next domain - progress bar will be updated in showDomainQuestions
+        showDomainQuestions(selectedDomains[currentDomainIndex]);
+      } else {
+        // All domains completed, show results
+        updateProgressIndicator(3); // Move to step 3 (results)
+        showResults();
+      }
+    }
+
+    // Go back to domain selection
+    function backToDomainSelection() {
+      // Reset assessment state
+      currentDomainIndex = 0;
+      completedDomains = [];
+
+      // Reset progress indicator to step 1
+      updateProgressIndicator(0);
+
+      // Hide all domain sections
+      const domainSections = document.querySelectorAll('[id$="-section"]');
+      domainSections.forEach(section => {
+        section.classList.add('hidden');
+      });
+
+      // Show domain selection
+      document.getElementById('domain-selection').classList.remove('hidden');
+
+      // Scroll to top of form
+      document.getElementById('assessment-form').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Update progress indicator
+    function updateProgressIndicator(step) {
+      const progressBar = document.getElementById('progress-bar');
+      const progressText = document.getElementById('progress-text');
+
+      // Calculate progress percentage based on step and total domains
+      let progressPercentage = 0;
+
+      if (step === 0) {
+        // Domain selection
+        progressPercentage = 25;
+        progressText.textContent = 'Step 1 of 4: Domain Selection';
+      } else if (step === 1) {
+        // First domain
+        progressPercentage = 25;
+        progressText.textContent = 'Step 2 of 4: Domain Assessment';
+      } else if (step === 2) {
+        // Domain assessment in progress
+        if (selectedDomains.length > 0) {
+          // Calculate progress based on completed domains
+          const completionPercentage = (currentDomainIndex / selectedDomains.length) * 50;
+          progressPercentage = 25 + completionPercentage;
+
+          // Show which domain is being assessed and progress
+          const currentDomain = selectedDomains[currentDomainIndex];
+          progressText.textContent = `Step 2 of 4: ${formatDomainName(currentDomain)} Assessment (${currentDomainIndex + 1}/${selectedDomains.length})`;
+        }
+      } else if (step === 3) {
+        // Results
+        progressPercentage = 100;
+        progressText.textContent = 'Step 4 of 4: Results';
+      }
+
+      // Update progress bar width
+      progressBar.style.width = `${progressPercentage}%`;
+    }
+
+    // Show results section
+    function showResults() {
+      // Hide assessment form
+      document.getElementById('assessment').classList.add('hidden');
+
+      // Show recommendations section
+      document.getElementById('recommendations').classList.remove('hidden');
+
+      // Update results content based on completed domains
+      updateResultsContent();
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+
+    // Update results content based on completed domains
+    function updateResultsContent() {
+      // Calculate the score based on selected answers
+      let totalQuestions = 0;
+      let correctAnswers = 0;
+
+      // Track category-specific scores
+      let technicalTotal = 0;
+      let technicalCorrect = 0;
+      let aptitudeTotal = 0;
+      let aptitudeCorrect = 0;
+      let softSkillsTotal = 0;
+      let softSkillsCorrect = 0;
+
+      // Loop through all completed domains
+      completedDomains.forEach(domain => {
+        // Get the question bank for this domain
+        const domainQuestions = questionBanks[domain] || {};
+
+        // Count technical questions
+        if (domainQuestions.technical) {
+          domainQuestions.technical.forEach((q, index) => {
+            totalQuestions++;
+            technicalTotal++;
+            const selectedAnswer = document.querySelector(`input[name="${domain}_tech_q${index+1}"]:checked`);
+            if (selectedAnswer && selectedAnswer.value === q.answer) {
+              correctAnswers++;
+              technicalCorrect++;
+            }
+          });
+        }
+
+        // Count aptitude questions
+        if (domainQuestions.aptitude) {
+          domainQuestions.aptitude.forEach((q, index) => {
+            totalQuestions++;
+            aptitudeTotal++;
+            const selectedAnswer = document.querySelector(`input[name="${domain}_apt_q${index+1}"]:checked`);
+            if (selectedAnswer && selectedAnswer.value === q.answer) {
+              correctAnswers++;
+              aptitudeCorrect++;
+            }
+          });
+        }
+
+        // Count soft skills questions
+        if (domainQuestions.soft_skills) {
+          domainQuestions.soft_skills.forEach((q, index) => {
+            totalQuestions++;
+            softSkillsTotal++;
+            const selectedAnswer = document.querySelector(`input[name="${domain}_soft_q${index+1}"]:checked`);
+            if (selectedAnswer && selectedAnswer.value === q.answer) {
+              correctAnswers++;
+              softSkillsCorrect++;
+            }
+          });
+        }
+      });
+
+      // Calculate overall percentage
+      const scorePercentage = totalQuestions > 0 ? Math.round((correctAnswers / totalQuestions) * 100) : 0;
+
+      // Update the overall score display
+      document.getElementById('overall-score').textContent = `${correctAnswers}/${totalQuestions} (${scorePercentage}%)`;
+
+      // Update the progress bar
+      document.getElementById('results-progress-bar').style.width = `${scorePercentage}%`;
+
+      // Calculate and update category scores
+      function getRatingFromPercentage(correct, total) {
+        if (total === 0) return "-";
+        const percentage = (correct / total) * 100;
+
+        if (percentage >= 90) return "Excellent";
+        if (percentage >= 75) return "Very Good";
+        if (percentage >= 60) return "Good";
+        if (percentage >= 40) return "Fair";
+        return "Needs Improvement";
+      }
+
+      // Update category scores
+      document.getElementById('technical-score').textContent = getRatingFromPercentage(technicalCorrect, technicalTotal);
+      document.getElementById('aptitude-score').textContent = getRatingFromPercentage(aptitudeCorrect, aptitudeTotal);
+      document.getElementById('soft-skills-score').textContent = getRatingFromPercentage(softSkillsCorrect, softSkillsTotal);
+
+      // Generate detailed results
+      const detailedResultsContainer = document.getElementById('detailed-results');
+      if (detailedResultsContainer) {
+        detailedResultsContainer.innerHTML = '';
+
+        // Loop through each domain to show results
+        completedDomains.forEach(domain => {
+          const domainQuestions = questionBanks[domain] || {};
+          const domainHeader = document.createElement('div');
+          domainHeader.className = 'mb-4';
+          domainHeader.innerHTML = `<h4 class="font-semibold text-lg mb-2">${formatDomainName(domain)}</h4>`;
+          detailedResultsContainer.appendChild(domainHeader);
+
+          // Function to create result item
+          function createResultItem(question, userAnswer, correctAnswer, isCorrect) {
+            const resultItem = document.createElement('div');
+            resultItem.className = 'mb-6';
+
+            const iconColor = isCorrect ? 'green' : 'red';
+            const iconPath = isCorrect
+              ? 'M5 13l4 4L19 7'
+              : 'M6 18L18 6M6 6l12 12';
+
+            resultItem.innerHTML = `
+              <div class="flex items-center mb-2">
+                <div class="w-6 h-6 rounded-full bg-${iconColor}-100 flex items-center justify-center mr-3">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-${iconColor}-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${iconPath}" />
+                  </svg>
+                </div>
+                <p class="font-medium">${question}</p>
+              </div>
+              ${userAnswer ? `<p class="text-gray-600 ml-9">Your answer: ${userAnswer}</p>` : ''}
+              <p class="text-gray-600 ml-9">Correct answer: ${correctAnswer}</p>
+            `;
+
+            return resultItem;
+          }
+
+          // Process technical questions
+          if (domainQuestions.technical && domainQuestions.technical.length > 0) {
+            const techHeader = document.createElement('div');
+            techHeader.className = 'ml-4 mb-2';
+            techHeader.innerHTML = '<h5 class="font-medium text-gray-700">Technical Questions</h5>';
+            detailedResultsContainer.appendChild(techHeader);
+
+            domainQuestions.technical.forEach((q, index) => {
+              const selectedAnswer = document.querySelector(`input[name="${domain}_tech_q${index+1}"]:checked`);
+              const userAnswerText = selectedAnswer ? q.options.find(opt => opt.startsWith(selectedAnswer.value + ')')) : 'Not answered';
+              const correctAnswerText = q.options.find(opt => opt.startsWith(q.answer + ')'));
+              const isCorrect = selectedAnswer && selectedAnswer.value === q.answer;
+
+              detailedResultsContainer.appendChild(
+                createResultItem(q.question, userAnswerText, correctAnswerText, isCorrect)
+              );
+            });
+          }
+
+          // Process aptitude questions
+          if (domainQuestions.aptitude && domainQuestions.aptitude.length > 0) {
+            const aptHeader = document.createElement('div');
+            aptHeader.className = 'ml-4 mb-2';
+            aptHeader.innerHTML = '<h5 class="font-medium text-gray-700">Aptitude Questions</h5>';
+            detailedResultsContainer.appendChild(aptHeader);
+
+            domainQuestions.aptitude.forEach((q, index) => {
+              const selectedAnswer = document.querySelector(`input[name="${domain}_apt_q${index+1}"]:checked`);
+              const userAnswerText = selectedAnswer ? q.options.find(opt => opt.startsWith(selectedAnswer.value + ')')) : 'Not answered';
+              const correctAnswerText = q.options.find(opt => opt.startsWith(q.answer + ')'));
+              const isCorrect = selectedAnswer && selectedAnswer.value === q.answer;
+
+              detailedResultsContainer.appendChild(
+                createResultItem(q.question, userAnswerText, correctAnswerText, isCorrect)
+              );
+            });
+          }
+
+          // Process soft skills questions
+          if (domainQuestions.soft_skills && domainQuestions.soft_skills.length > 0) {
+            const softHeader = document.createElement('div');
+            softHeader.className = 'ml-4 mb-2';
+            softHeader.innerHTML = '<h5 class="font-medium text-gray-700">Soft Skills Questions</h5>';
+            detailedResultsContainer.appendChild(softHeader);
+
+            domainQuestions.soft_skills.forEach((q, index) => {
+              const selectedAnswer = document.querySelector(`input[name="${domain}_soft_q${index+1}"]:checked`);
+              const userAnswerText = selectedAnswer ? q.options.find(opt => opt.startsWith(selectedAnswer.value + ')')) : 'Not answered';
+              const correctAnswerText = q.options.find(opt => opt.startsWith(q.answer + ')'));
+              const isCorrect = selectedAnswer && selectedAnswer.value === q.answer;
+
+              detailedResultsContainer.appendChild(
+                createResultItem(q.question, userAnswerText, correctAnswerText, isCorrect)
+              );
+            });
+          }
+
+          // Add separator between domains
+          if (domain !== completedDomains[completedDomains.length - 1]) {
+            const separator = document.createElement('hr');
+            separator.className = 'my-6 border-gray-200';
+            detailedResultsContainer.appendChild(separator);
+          }
+        });
+
+        // If no domains were completed
+        if (completedDomains.length === 0) {
+          detailedResultsContainer.innerHTML = '<p class="text-gray-600 italic">Complete the assessment to see detailed results.</p>';
+        }
+      }
+
+      // Generate learning resources based on assessment results
+      const learningResourcesContainer = document.getElementById('learning-resources');
+      if (learningResourcesContainer) {
+        learningResourcesContainer.innerHTML = '';
+
+        // Define learning resources for each domain
+        const domainResources = {
+          web_development: [
+            {
+              title: "Modern JavaScript - From Fundamentals to Advanced",
+              description: "Master JavaScript with this comprehensive course covering ES6+ features",
+              url: "https://javascript.info/",
+              urlText: "JavaScript.info"
+            },
+            {
+              title: "CSS Flexbox and Grid Layout",
+              description: "Learn modern CSS layout techniques for responsive web design",
+              url: "https://css-tricks.com/snippets/css/a-guide-to-flexbox/",
+              urlText: "CSS-Tricks Flexbox Guide"
+            },
+            {
+              title: "React.js Fundamentals",
+              description: "Build interactive UIs with the popular React library",
+              url: "https://reactjs.org/tutorial/tutorial.html",
+              urlText: "React Tutorial"
+            }
+          ],
+          backend_development: [
+            {
+              title: "RESTful API Design",
+              description: "Learn best practices for designing robust and scalable APIs",
+              url: "https://restfulapi.net/",
+              urlText: "REST API Tutorial"
+            },
+            {
+              title: "Database Design Fundamentals",
+              description: "Master relational database design principles and normalization",
+              url: "https://www.coursera.org/learn/database-management",
+              urlText: "Coursera Database Course"
+            },
+            {
+              title: "Server-Side Security",
+              description: "Protect your applications from common security vulnerabilities",
+              url: "https://owasp.org/www-project-top-ten/",
+              urlText: "OWASP Top 10"
+            }
+          ],
+          data_science: [
+            {
+              title: "Python for Data Science",
+              description: "Learn Python libraries like NumPy, Pandas and Matplotlib for data analysis",
+              url: "https://www.datacamp.com/courses/intro-to-python-for-data-science",
+              urlText: "DataCamp Python Course"
+            },
+            {
+              title: "Machine Learning Fundamentals",
+              description: "Understand core ML algorithms and when to use them",
+              url: "https://www.coursera.org/learn/machine-learning",
+              urlText: "Andrew Ng's ML Course"
+            },
+            {
+              title: "Data Visualization Techniques",
+              description: "Create effective visualizations to communicate insights",
+              url: "https://www.tableau.com/learn/training",
+              urlText: "Tableau Training"
+            }
+          ],
+          mobile_development: [
+            {
+              title: "React Native Crash Course",
+              description: "Build cross-platform mobile apps with React Native",
+              url: "https://reactnative.dev/docs/getting-started",
+              urlText: "React Native Docs"
+            },
+            {
+              title: "Mobile UI/UX Design Principles",
+              description: "Design intuitive and user-friendly mobile interfaces",
+              url: "https://material.io/design",
+              urlText: "Material Design Guidelines"
+            },
+            {
+              title: "App Performance Optimization",
+              description: "Techniques to make your mobile apps faster and more efficient",
+              url: "https://developer.android.com/topic/performance",
+              urlText: "Android Performance Guide"
+            }
+          ],
+          devops: [
+            {
+              title: "Docker and Containerization",
+              description: "Learn to package applications into containers for consistent deployment",
+              url: "https://docs.docker.com/get-started/",
+              urlText: "Docker Getting Started"
+            },
+            {
+              title: "CI/CD Pipeline Implementation",
+              description: "Automate your testing and deployment processes",
+              url: "https://www.atlassian.com/continuous-delivery",
+              urlText: "Atlassian CI/CD Guide"
+            },
+            {
+              title: "Infrastructure as Code",
+              description: "Manage infrastructure using code and automation",
+              url: "https://learn.hashicorp.com/terraform",
+              urlText: "Terraform Tutorials"
+            }
+          ],
+          ui_ux: [
+            {
+              title: "User Research Methods",
+              description: "Learn effective techniques for understanding user needs",
+              url: "https://www.nngroup.com/articles/which-ux-research-methods/",
+              urlText: "Nielsen Norman Group Guide"
+            },
+            {
+              title: "Interaction Design Principles",
+              description: "Create intuitive interfaces with effective interaction design",
+              url: "https://www.interaction-design.org/courses",
+              urlText: "Interaction Design Courses"
+            },
+            {
+              title: "Prototyping and Wireframing",
+              description: "Tools and techniques for creating effective prototypes",
+              url: "https://www.figma.com/resources/learn-design/",
+              urlText: "Figma Design Resources"
+            }
+          ],
+          cybersecurity: [
+            {
+              title: "Web Application Security",
+              description: "Protect web applications from common vulnerabilities",
+              url: "https://portswigger.net/web-security",
+              urlText: "PortSwigger Web Security Academy"
+            },
+            {
+              title: "Network Security Fundamentals",
+              description: "Understand network security principles and implementation",
+              url: "https://www.cybrary.it/course/comptia-network-plus/",
+              urlText: "Cybrary Network+ Course"
+            },
+            {
+              title: "Ethical Hacking",
+              description: "Learn penetration testing techniques to identify vulnerabilities",
+              url: "https://www.hackthebox.eu/",
+              urlText: "Hack The Box"
+            }
+          ],
+          project_management: [
+            {
+              title: "Agile Project Management",
+              description: "Master Agile methodologies for software development projects",
+              url: "https://www.atlassian.com/agile",
+              urlText: "Atlassian Agile Guide"
+            },
+            {
+              title: "Project Estimation Techniques",
+              description: "Learn how to accurately estimate project timelines and resources",
+              url: "https://www.pmi.org/learning/library/project-estimation-techniques-7181",
+              urlText: "PMI Estimation Guide"
+            },
+            {
+              title: "Stakeholder Management",
+              description: "Effectively communicate with and manage stakeholder expectations",
+              url: "https://www.coursera.org/learn/project-management-basics",
+              urlText: "Project Management Basics"
+            }
+          ]
+        };
+
+        // Add resources based on completed domains
+        let addedResources = 0;
+
+        // First add resources for domains with lower scores
+        const domainScores = {};
+
+        // Calculate score for each domain
+        completedDomains.forEach(domain => {
+          const domainQuestions = questionBanks[domain] || {};
+          let totalDomainQuestions = 0;
+          let correctDomainAnswers = 0;
+
+          // Count all questions and correct answers for this domain
+          ['technical', 'aptitude', 'soft_skills'].forEach(category => {
+            if (domainQuestions[category]) {
+              domainQuestions[category].forEach((q, index) => {
+                totalDomainQuestions++;
+                const selectedAnswer = document.querySelector(`input[name="${domain}_${category.replace('_', '')}_q${index+1}"]:checked`);
+                if (selectedAnswer && selectedAnswer.value === q.answer) {
+                  correctDomainAnswers++;
+                }
+              });
+            }
+          });
+
+          // Calculate domain score percentage
+          if (totalDomainQuestions > 0) {
+            domainScores[domain] = (correctDomainAnswers / totalDomainQuestions) * 100;
+          } else {
+            domainScores[domain] = 100; // Default if no questions
+          }
+        });
+
+        // Sort domains by score (ascending)
+        const sortedDomains = [...completedDomains].sort((a, b) => domainScores[a] - domainScores[b]);
+
+        // Add resources for domains with lowest scores first (up to 3 domains)
+        for (const domain of sortedDomains) {
+          if (addedResources >= 3) break;
+
+          const resources = domainResources[domain];
+          if (resources && resources.length > 0) {
+            // Add one resource from this domain
+            const resource = resources[Math.floor(Math.random() * resources.length)];
+
+            const resourceElement = document.createElement('div');
+            resourceElement.className = 'p-4 bg-gray-50 rounded-md';
+            resourceElement.innerHTML = `
+              <h4 class="font-semibold mb-1">${resource.title}</h4>
+              <p class="text-gray-600 mb-2">${resource.description}</p>
+              <a href="${resource.url}" target="_blank" class="text-primary hover:underline">${resource.urlText} →</a>
+            `;
+
+            learningResourcesContainer.appendChild(resourceElement);
+            addedResources++;
+          }
+        }
+
+        // If no resources were added
+        if (addedResources === 0) {
+          learningResourcesContainer.innerHTML = '<p class="text-gray-600 italic">Complete the assessment to see personalized learning resources.</p>';
+        }
+      }
+
+
+
+      // Display the domains that were assessed
+      const domainsList = document.getElementById('assessed-domains-list');
+      if (domainsList) {
+        domainsList.innerHTML = '';
+
+        completedDomains.forEach(domain => {
+          const formattedDomain = formatDomainName(domain);
+          const li = document.createElement('li');
+          li.className = 'mb-1';
+          li.textContent = formattedDomain;
+          domainsList.appendChild(li);
+        });
+      }
+    }
+
+    // Show assessment section (restart assessment)
+    function showAssessment() {
+      // Hide recommendations
+      document.getElementById('recommendations').classList.add('hidden');
+
+      // Show assessment and reset to domain selection
+      document.getElementById('assessment').classList.remove('hidden');
+      backToDomainSelection();
+
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+  </script>
+</body>
+</html>

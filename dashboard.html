@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Grow like a Pro! | AI Career Guidance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="dashboard.html" class="flex items-center">
+            <span style="color: var(--primary);" class="font-bold text-xl">Grow like a Pro!</span>
+          </a>
+        </div>
+
+        <!-- Desktop menu -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Home</a>
+          <a href="dashboard.html" class="px-3 py-2 rounded-md text-sm font-medium" style="color: var(--primary); font-weight: 600;">Dashboard</a>
+          <a href="assessment.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Assessment</a>
+          <a href="courses.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Courses</a>
+          <a href="jobs.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Jobs</a>
+
+          <!-- User dropdown -->
+          <div class="ml-4 relative">
+            <div>
+              <button id="user-menu-button" class="flex items-center text-sm font-medium text-gray-700 hover:text-primary focus:outline-none">
+                <span id="user-name">User</span>
+                <svg class="ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+
+            <div id="user-dropdown" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1">
+              <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
+              <a href="settings.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+              <button id="logout-button" class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-primary focus:outline-none">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Home</a>
+        <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium" style="color: var(--primary); font-weight: 600;">Dashboard</a>
+        <a href="assessment.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Assessment</a>
+        <a href="courses.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Courses</a>
+        <a href="jobs.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Jobs</a>
+        <a href="profile.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Profile</a>
+        <a href="settings.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Settings</a>
+        <button id="mobile-logout-button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Sign out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container mx-auto px-4 py-8">
+      <!-- Welcome Section -->
+      <div class="mb-8">
+        <h1 class="text-3xl font-bold mb-2">Welcome, <span id="welcome-name">User</span>!</h1>
+        <p class="text-gray-600">Here's your personalized career guidance dashboard.</p>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="card bg-gradient-to-br from-primary/10 to-primary/5 hover:shadow-lg transition-shadow">
+          <h2 class="text-xl font-semibold mb-3">Career Assessment</h2>
+          <p class="text-gray-600 mb-4">Take our comprehensive assessment to get personalized career recommendations.</p>
+          <a href="assessment.html" class="btn-primary">Start Assessment</a>
+        </div>
+
+        <div class="card bg-gradient-to-br from-secondary/10 to-secondary/5 hover:shadow-lg transition-shadow">
+          <h2 class="text-xl font-semibold mb-3">Explore Courses</h2>
+          <p class="text-gray-600 mb-4">Discover free online courses to enhance your skills and knowledge.</p>
+          <a href="courses.html" class="btn-secondary">Browse Courses</a>
+        </div>
+
+        <div class="card bg-gradient-to-br from-accent/10 to-accent/5 hover:shadow-lg transition-shadow">
+          <h2 class="text-xl font-semibold mb-3">Find Jobs</h2>
+          <p class="text-gray-600 mb-4">Explore job opportunities that match your skills and interests.</p>
+          <a href="jobs.html" class="btn-accent">Search Jobs</a>
+        </div>
+      </div>
+
+      <!-- Recent Activity -->
+      <div class="mb-8">
+        <h2 class="section-title">Recent Activity</h2>
+        <div class="card" id="recent-activity">
+          <p class="text-gray-600 text-center py-4">No recent activity. Start by taking an assessment!</p>
+        </div>
+      </div>
+
+      <!-- Recommended Resources -->
+      <div class="mb-8">
+        <h2 class="section-title">Recommended Resources</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="recommended-resources">
+          <!-- Resources will be dynamically added here based on user type -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Grow like a Pro!</h3>
+          <p class="text-gray-300">
+            AI-powered career guidance for students, job seekers, and professionals.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="text-gray-300 hover:text-white transition-colors">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="dashboard.html" class="text-gray-300 hover:text-white transition-colors">
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="assessment.html" class="text-gray-300 hover:text-white transition-colors">
+                Assessment
+              </a>
+            </li>
+            <li>
+              <a href="courses.html" class="text-gray-300 hover:text-white transition-colors">
+                Courses
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact</h3>
+          <p class="text-gray-300 mb-2">
+            Have questions? Reach out to us.
+          </p>
+          <p class="text-gray-300">
+            Email: support@growlikeapro.com
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
+        <p>&copy; 2023 Grow like a Pro! All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chatbot -->
+  <link rel="stylesheet" href="css/chatbot.css">
+
+  <!-- Include Chatbot HTML -->
+  <!-- Chatbot Toggle Button -->
+  <div class="chatbot-toggle" id="chatbot-toggle">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+    </svg>
+  </div>
+
+  <!-- Chatbot Container -->
+  <div class="chatbot-container" id="chatbot-container">
+    <div class="chatbot-header" id="chatbot-header">
+      <h3>EduAssist Bot</h3>
+      <div class="chatbot-header-icons">
+        <button class="chatbot-header-icon" id="chatbot-minimize">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M14 8a1 1 0 0 1-1 1H3a1 1 0 0 1 0-2h10a1 1 0 0 1 1 1z"/>
+          </svg>
+        </button>
+        <button class="chatbot-header-icon" id="chatbot-close">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="chatbot-messages" id="chatbot-messages">
+      <!-- Messages will be added dynamically -->
+    </div>
+
+    <div class="chatbot-input-container">
+      <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type your message...">
+      <button class="chatbot-send" id="chatbot-send">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Check if user is logged in
+    if (!auth.checkAuth()) {
+      window.location.href = 'login.html';
+    }
+
+    // Get current user
+    const currentUser = auth.getCurrentUser();
+
+    // Update user name in UI
+    const userName = currentUser.name || 'User';
+    const firstName = userName.split(' ')[0];
+    document.getElementById('user-name').textContent = firstName;
+    document.getElementById('welcome-name').textContent = userName;
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // User dropdown toggle
+    const userMenuButton = document.getElementById('user-menu-button');
+    const userDropdown = document.getElementById('user-dropdown');
+
+    userMenuButton.addEventListener('click', () => {
+      userDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', (e) => {
+      if (!userMenuButton.contains(e.target) && !userDropdown.contains(e.target)) {
+        userDropdown.classList.add('hidden');
+      }
+    });
+
+    // Logout functionality
+    document.getElementById('logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    document.getElementById('mobile-logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    // Load recommended resources based on user type
+    const recommendedResourcesContainer = document.getElementById('recommended-resources');
+
+    function loadRecommendedResources() {
+      // Clear container
+      recommendedResourcesContainer.innerHTML = '';
+
+      // Resources based on user type
+      let resources = [];
+
+      switch(currentUser.userType) {
+        case 'student':
+          resources = [
+            {
+              title: 'Top Free Learning Platforms',
+              description: 'Discover the best free online learning platforms for students.',
+              link: 'courses.html',
+              icon: '🎓'
+            },
+            {
+              title: 'Career Resources',
+              description: 'Access resources to help you plan and develop your career.',
+              link: 'career-resources.html',
+              icon: '💰'
+            },
+            {
+              title: 'Student Career Planning',
+              description: 'Learn how to plan your career path while still in school.',
+              link: 'career-planning.html',
+              icon: '📝'
+            }
+          ];
+          break;
+        case 'job_seeker':
+          resources = [
+            {
+              title: 'Resume Building Tips',
+              description: 'Create a standout resume that gets you noticed by employers.',
+              link: 'resume-tips.html',
+              icon: '📄'
+            },
+            {
+              title: 'Interview Preparation',
+              description: 'Prepare for job interviews with our comprehensive guides.',
+              link: 'interview-prep.html',
+              icon: '🗣️'
+            },
+            {
+              title: 'Job Search Strategies',
+              description: 'Effective strategies to find and apply for jobs in your field.',
+              link: 'job-search.html',
+              icon: '🔍'
+            }
+          ];
+          break;
+        case 'professional':
+          resources = [
+            {
+              title: 'Stress Management',
+              description: 'Techniques to manage workplace stress and maintain well-being.',
+              link: 'wellness.html',
+              icon: '🧘'
+            },
+            {
+              title: 'Career Advancement',
+              description: 'Strategies to advance in your current career path.',
+              link: 'career-advancement.html',
+              icon: '📈'
+            },
+            {
+              title: 'Leadership Skills',
+              description: 'Develop essential leadership skills for professional growth.',
+              link: 'leadership.html',
+              icon: '👥'
+            }
+          ];
+          break;
+        default:
+          resources = [
+            {
+              title: 'Career Exploration',
+              description: 'Explore different career paths and find what suits you best.',
+              link: 'career-exploration.html',
+              icon: '🧭'
+            },
+            {
+              title: 'Skill Development',
+              description: 'Identify and develop key skills for your desired career.',
+              link: 'skill-development.html',
+              icon: '🛠️'
+            },
+            {
+              title: 'Networking Tips',
+              description: 'Learn how to build and leverage professional networks.',
+              link: 'networking.html',
+              icon: '🔗'
+            }
+          ];
+      }
+
+      // Add resources to container
+      resources.forEach(resource => {
+        const resourceCard = document.createElement('div');
+        resourceCard.className = 'card hover:shadow-lg transition-shadow';
+        resourceCard.innerHTML = `
+          <div class="text-3xl mb-3">${resource.icon}</div>
+          <h3 class="text-xl font-semibold mb-2">${resource.title}</h3>
+          <p class="text-gray-600 mb-4">${resource.description}</p>
+          <a href="${resource.link}" class="text-primary hover:underline">Learn more →</a>
+        `;
+        recommendedResourcesContainer.appendChild(resourceCard);
+      });
+    }
+
+    // Load resources on page load
+    loadRecommendedResources();
+  </script>
+
+  <!-- Include College and Scholarship Data -->
+  <script src="js/data/colleges.js"></script>
+  <script src="js/data/scholarships.js"></script>
+
+  <!-- Include Chatbot JS -->
+  <script src="js/chatbot.js"></script>
+</body>
+</html>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HBSCW05KD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HBSCW05KD');
+</script>

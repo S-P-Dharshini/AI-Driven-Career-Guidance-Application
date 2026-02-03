@@ -1,0 +1,38 @@
+<!-- Chatbot Toggle Button -->
+<div class="chatbot-toggle" id="chatbot-toggle">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+  </svg>
+</div>
+
+<!-- Chatbot Container -->
+<div class="chatbot-container" id="chatbot-container">
+  <div class="chatbot-header" id="chatbot-header">
+    <h3>EduAssist Bot</h3>
+    <div class="chatbot-header-icons">
+      <button class="chatbot-header-icon" id="chatbot-minimize">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M14 8a1 1 0 0 1-1 1H3a1 1 0 0 1 0-2h10a1 1 0 0 1 1 1z"/>
+        </svg>
+      </button>
+      <button class="chatbot-header-icon" id="chatbot-close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+  
+  <div class="chatbot-messages" id="chatbot-messages">
+    <!-- Messages will be added dynamically -->
+  </div>
+  
+  <div class="chatbot-input-container">
+    <input type="text" class="chatbot-input" id="chatbot-input" placeholder="Type your message...">
+    <button class="chatbot-send" id="chatbot-send">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+      </svg>
+    </button>
+  </div>
+</div>

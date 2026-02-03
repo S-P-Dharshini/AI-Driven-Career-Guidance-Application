@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Online Courses - Grow like a Pro! | AI Career Guidance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="dashboard.html" class="flex items-center">
+            <span style="color: var(--primary);" class="font-bold text-xl">Grow like a Pro!</span>
+          </a>
+        </div>
+
+        <!-- Desktop menu -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Home</a>
+          <a href="dashboard.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Dashboard</a>
+          <a href="assessment.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Assessment</a>
+          <a href="courses.html" class="px-3 py-2 rounded-md text-sm font-medium" style="color: var(--primary); font-weight: 600;">Courses</a>
+          <a href="jobs.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Jobs</a>
+
+          <!-- User dropdown -->
+          <div class="ml-4 relative">
+            <div>
+              <button id="user-menu-button" class="flex items-center text-sm font-medium text-gray-700 hover:text-primary focus:outline-none">
+                <span id="user-name">User</span>
+                <svg class="ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+
+            <div id="user-dropdown" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1">
+              <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
+              <a href="settings.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+              <button id="logout-button" class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-primary focus:outline-none">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Home</a>
+        <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Dashboard</a>
+        <a href="assessment.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Assessment</a>
+        <a href="courses.html" class="block px-3 py-2 rounded-md text-base font-medium" style="color: var(--primary); font-weight: 600;">Courses</a>
+        <a href="jobs.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Jobs</a>
+        <a href="profile.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Profile</a>
+        <a href="settings.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Settings</a>
+        <button id="mobile-logout-button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Sign out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold mb-2">Free Online Courses</h1>
+      <p class="text-gray-600 mb-8">Discover top-quality free courses to enhance your skills and advance your career.</p>
+
+      <!-- Search and Filter -->
+      <div class="mb-8">
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="flex-grow">
+            <input
+              type="text"
+              id="course-search"
+              placeholder="Search courses..."
+              class="input-field"
+            >
+          </div>
+          <div class="md:w-1/4">
+            <select id="category-filter" class="input-field">
+              <option value="all">All Categories</option>
+              <option value="programming">Programming</option>
+              <option value="business">Business</option>
+              <option value="design">Design</option>
+              <option value="marketing">Marketing</option>
+              <option value="data-science">Data Science</option>
+              <option value="personal-development">Personal Development</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Learning Platforms Section -->
+      <div class="mb-12">
+        <h2 class="section-title">Top Learning Platforms</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Coursera -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://www.coursera.org/images/logos/coursera-logo-full-rgb.png" alt="Coursera" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">Access thousands of courses from top universities and companies. Many courses offer free audit options.</p>
+            <div class="flex justify-between items-center">
+              <span class="badge badge-primary">University Courses</span>
+              <a href="https://www.coursera.org/courses?query=free" target="_blank" class="text-primary hover:underline">Visit Site →</a>
+            </div>
+          </div>
+
+          <!-- edX -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://www.edx.org/images/logos/edx-logo-elm.svg" alt="edX" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">High-quality courses from Harvard, MIT, and more. Free to audit most courses with paid certificates available.</p>
+            <div class="flex justify-between items-center">
+              <span class="badge badge-primary">University Courses</span>
+              <a href="https://www.edx.org/search?tab=course" target="_blank" class="text-primary hover:underline">Visit Site →</a>
+            </div>
+          </div>
+
+          <!-- Khan Academy -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://cdn.kastatic.org/images/khan-logo-vertical-transparent.png" alt="Khan Academy" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">Completely free educational platform with courses in math, science, computing, and more.</p>
+            <div class="flex justify-between items-center">
+              <span class="badge badge-secondary">All Free</span>
+              <a href="https://www.khanacademy.org/" target="_blank" class="text-primary hover:underline">Visit Site →</a>
+            </div>
+          </div>
+
+          <!-- freeCodeCamp -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://design-style-guide.freecodecamp.org/downloads/fcc_primary_large.jpg" alt="freeCodeCamp" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">Learn to code with free interactive tutorials and earn certifications in web development, data science, and more.</p>
+            <div class="flex justify-between items-center">
+              <span class="badge badge-secondary">All Free</span>
+              <a href="https://www.freecodecamp.org/" target="_blank" class="text-primary hover:underline">Visit Site →</a>
+            </div>
+          </div>
+
+          <!-- Codecademy -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://www.codecademy.com/webpack/6c53a2e2e2a344f9aa44b3c878d5e904.svg" alt="Codecademy" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">Interactive coding lessons with free basic access. Learn web development, programming, data science, and more.</p>
+            <div class="flex justify-between items-center">
+              <span class="badge badge-primary">Free Basic</span>
+              <a href="https://www.codecademy.com/" target="_blank" class="text-primary hover:underline">Visit Site →</a>
+            </div>
+          </div>
+
+          <!-- LinkedIn Learning -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png" alt="LinkedIn Learning" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">Professional courses with 1-month free trial. Great for business, technology, and creative skills.</p>
+            <div class="flex justify-between items-center">
+              <span class="badge badge-accent">Free Trial</span>
+              <a href="https://www.linkedin.com/learning/" target="_blank" class="text-primary hover:underline">Visit Site →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommended Courses -->
+      <div class="mb-12">
+        <h2 class="section-title">Recommended Courses for You</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="recommended-courses">
+          <!-- Courses will be dynamically added here -->
+        </div>
+      </div>
+
+      <!-- Skills Assessment -->
+      <div class="mb-12">
+        <h2 class="section-title">Skills Assessment Tools</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold mb-3">LinkedIn Skill Assessments</h3>
+            <p class="text-gray-600 mb-4">Validate your skills with LinkedIn's assessment tests and earn badges for your profile.</p>
+            <a href="https://www.linkedin.com/skill-assessments/" target="_blank" class="btn-primary">Take Assessments</a>
+          </div>
+
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold mb-3">HackerRank Skills Certification</h3>
+            <p class="text-gray-600 mb-4">Prove your coding skills with HackerRank's certification tests in various programming languages.</p>
+            <a href="https://www.hackerrank.com/skills-verification" target="_blank" class="btn-primary">Get Certified</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Grow like a Pro!</h3>
+          <p class="text-gray-300">
+            AI-powered career guidance for students, job seekers, and professionals.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="text-gray-300 hover:text-white transition-colors">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="dashboard.html" class="text-gray-300 hover:text-white transition-colors">
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="assessment.html" class="text-gray-300 hover:text-white transition-colors">
+                Assessment
+              </a>
+            </li>
+            <li>
+              <a href="jobs.html" class="text-gray-300 hover:text-white transition-colors">
+                Jobs
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact</h3>
+          <p class="text-gray-300 mb-2">
+            Have questions? Reach out to us.
+          </p>
+          <p class="text-gray-300">
+            Email: support@growlikeapro.com
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
+        <p>&copy; 2023 Grow like a Pro! All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Check if user is logged in
+    if (!auth.checkAuth()) {
+      window.location.href = 'login.html';
+    }
+
+    // Get current user
+    const currentUser = auth.getCurrentUser();
+
+    // Update user name in UI
+    const userName = currentUser.name || 'User';
+    const firstName = userName.split(' ')[0];
+    document.getElementById('user-name').textContent = firstName;
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // User dropdown toggle
+    const userMenuButton = document.getElementById('user-menu-button');
+    const userDropdown = document.getElementById('user-dropdown');
+
+    userMenuButton.addEventListener('click', () => {
+      userDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', (e) => {
+      if (!userMenuButton.contains(e.target) && !userDropdown.contains(e.target)) {
+        userDropdown.classList.add('hidden');
+      }
+    });
+
+    // Logout functionality
+    document.getElementById('logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    document.getElementById('mobile-logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    // Sample recommended courses based on user type
+    const recommendedCoursesContainer = document.getElementById('recommended-courses');
+
+    // Course data
+    const courses = {
+      student: [
+        {
+          title: 'Learning How to Learn',
+          platform: 'Coursera',
+          instructor: 'Dr. Barbara Oakley',
+          category: 'personal-development',
+          image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/c3/05ce20ab6d11e88d594f951694ab88/Logo_Course_banner.png?auto=format%2Ccompress&dpr=1',
+          link: 'https://www.coursera.org/learn/learning-how-to-learn'
+        },
+        {
+          title: 'CS50: Introduction to Computer Science',
+          platform: 'edX',
+          instructor: 'David J. Malan',
+          category: 'programming',
+          image: 'https://prod-discovery.edx-cdn.org/media/course/image/da1b2400-322b-459b-97b0-0c557f05d017-282fb6690fbe.small.jpg',
+          link: 'https://www.edx.org/course/introduction-computer-science-harvardx-cs50x'
+        },
+        {
+          title: 'Introduction to Financial Accounting',
+          platform: 'Coursera',
+          instructor: 'University of Pennsylvania',
+          category: 'business',
+          image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/cb/3c4d80a7e511e8991ff71ead974a6c/Financial-Accounting-Intro.jpg?auto=format%2Ccompress&dpr=1',
+          link: 'https://www.coursera.org/learn/wharton-accounting'
+        }
+      ],
+      job_seeker: [
+        {
+          title: 'How to Write a Resume',
+          platform: 'LinkedIn Learning',
+          instructor: 'Jenny Foss',
+          category: 'personal-development',
+          image: 'https://media.licdn.com/dms/image/C4E0DAQGUzPBgMoYYhg/learning-public-crop_288_512/0/1567117664460?e=1686787200&v=beta&t=0KQB8dXI9YbFzU8YmDOEy1DHp0YC4Xb8UZZbwVGgX1c',
+          link: 'https://www.linkedin.com/learning/writing-a-resume'
+        },
+        {
+          title: 'Responsive Web Design',
+          platform: 'freeCodeCamp',
+          instructor: 'freeCodeCamp Team',
+          category: 'programming',
+          image: 'https://design-style-guide.freecodecamp.org/downloads/fcc_secondary_small.jpg',
+          link: 'https://www.freecodecamp.org/learn/responsive-web-design/'
+        },
+        {
+          title: 'SQL for Data Science',
+          platform: 'Coursera',
+          instructor: 'University of California, Davis',
+          category: 'data-science',
+          image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/16/d602b00a6c11e88d594f951694ab88/Logo_Square.png?auto=format%2Ccompress&dpr=1',
+          link: 'https://www.coursera.org/learn/sql-for-data-science'
+        }
+      ],
+      professional: [
+        {
+          title: 'Leadership Foundations',
+          platform: 'LinkedIn Learning',
+          instructor: 'Britt Andreatta',
+          category: 'business',
+          image: 'https://media.licdn.com/dms/image/C4E0DAQFrdDhG2m5-Qg/learning-public-crop_288_512/0/1567117664460?e=1686787200&v=beta&t=0KQB8dXI9YbFzU8YmDOEy1DHp0YC4Xb8UZZbwVGgX1c',
+          link: 'https://www.linkedin.com/learning/leadership-foundations-4'
+        },
+        {
+          title: 'Machine Learning',
+          platform: 'Coursera',
+          instructor: 'Andrew Ng',
+          category: 'data-science',
+          image: 'https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://coursera-course-photos.s3.amazonaws.com/08/8c6df0f8b311e8b6c2b7c1a74c2ea1/ml-logo.png?auto=format%2Ccompress&dpr=1',
+          link: 'https://www.coursera.org/learn/machine-learning'
+        },
+        {
+          title: 'Mindfulness and Stress Management',
+          platform: 'edX',
+          instructor: 'Rice University',
+          category: 'personal-development',
+          image: 'https://prod-discovery.edx-cdn.org/media/course/image/3066db1a-f511-4a57-997d-c3e76c8e8e32-7ba5a9f5d103.small.jpg',
+          link: 'https://www.edx.org/course/mindfulness-and-resilience-to-stress-at-work'
+        }
+      ],
+      general: [
+        {
+          title: 'Introduction to Python Programming',
+          platform: 'Udacity',
+          instructor: 'Udacity Team',
+          category: 'programming',
+          image: 'https://www.udacity.com/www-proxy/contentful/assets/2y9b3o528xhq/6O58LR2xUDUV0eLZcCVSRA/253842b5c9c794e78cf0ebe7886955e6/Python_for_Data_Science_-_Numpy_Stack.jpg',
+          link: 'https://www.udacity.com/course/introduction-to-python--ud1110'
+        },
+        {
+          title: 'Digital Marketing Fundamentals',
+          platform: 'Google Digital Garage',
+          instructor: 'Google',
+          category: 'marketing',
+          image: 'https://lh3.googleusercontent.com/proxy/8_ES57q5YulSCQhXr5Yyf-RERdYLFMgZl5QA-XSgCRwQQPzLRGjLVYZJcA_bjJmgCwRXdStl1e_F7ssLMUTLfQGBiw',
+          link: 'https://learndigital.withgoogle.com/digitalgarage/course/digital-marketing'
+        },
+        {
+          title: 'Introduction to Graphic Design',
+          platform: 'Canva',
+          instructor: 'Canva Team',
+          category: 'design',
+          image: 'https://static.canva.com/static/images/canva_logo_blue_twitter.png',
+          link: 'https://www.canva.com/learn/design/'
+        }
+      ]
+    };
+
+    // Load recommended courses based on user type
+    function loadRecommendedCourses() {
+      // Clear container
+      recommendedCoursesContainer.innerHTML = '';
+
+      // Get courses based on user type
+      const userCourses = courses[currentUser.userType] || courses.general;
+
+      // Add courses to container
+      userCourses.forEach(course => {
+        const courseCard = document.createElement('div');
+        courseCard.className = 'course-card card overflow-hidden';
+        courseCard.innerHTML = `
+          <img src="${course.image}" alt="${course.title}" class="w-full h-40 object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-semibold mb-1">${course.title}</h3>
+            <p class="text-sm text-gray-500 mb-2">${course.platform} • ${course.instructor}</p>
+            <div class="flex justify-between items-center mt-4">
+              <span class="badge badge-primary">${course.category}</span>
+              <a href="${course.link}" target="_blank" class="text-primary hover:underline">Enroll Now →</a>
+            </div>
+          </div>
+        `;
+        recommendedCoursesContainer.appendChild(courseCard);
+      });
+    }
+
+    // Load courses on page load
+    loadRecommendedCourses();
+
+    // Search and filter functionality
+    const courseSearch = document.getElementById('course-search');
+    const categoryFilter = document.getElementById('category-filter');
+
+    function filterCourses() {
+      const searchTerm = courseSearch.value.toLowerCase();
+      const category = categoryFilter.value;
+
+      // Get all course types
+      const allCourses = [
+        ...courses.student,
+        ...courses.job_seeker,
+        ...courses.professional,
+        ...courses.general
+      ];
+
+      // Filter courses
+      const filteredCourses = allCourses.filter(course => {
+        const matchesSearch = course.title.toLowerCase().includes(searchTerm) ||
+                             course.platform.toLowerCase().includes(searchTerm) ||
+                             course.instructor.toLowerCase().includes(searchTerm);
+
+        const matchesCategory = category === 'all' || course.category === category;
+
+        return matchesSearch && matchesCategory;
+      });
+
+      // Clear container
+      recommendedCoursesContainer.innerHTML = '';
+
+      // Add filtered courses
+      if (filteredCourses.length === 0) {
+        recommendedCoursesContainer.innerHTML = '<p class="col-span-full text-center text-gray-500 py-8">No courses found matching your criteria.</p>';
+      } else {
+        filteredCourses.forEach(course => {
+          const courseCard = document.createElement('div');
+          courseCard.className = 'course-card card overflow-hidden';
+          courseCard.innerHTML = `
+            <img src="${course.image}" alt="${course.title}" class="w-full h-40 object-cover">
+            <div class="p-4">
+              <h3 class="text-lg font-semibold mb-1">${course.title}</h3>
+              <p class="text-sm text-gray-500 mb-2">${course.platform} • ${course.instructor}</p>
+              <div class="flex justify-between items-center mt-4">
+                <span class="badge badge-primary">${course.category}</span>
+                <a href="${course.link}" target="_blank" class="text-primary hover:underline">Enroll Now →</a>
+              </div>
+            </div>
+          `;
+          recommendedCoursesContainer.appendChild(courseCard);
+        });
+      }
+    }
+
+    courseSearch.addEventListener('input', filterCourses);
+    categoryFilter.addEventListener('change', filterCourses);
+  </script>
+</body>
+</html>

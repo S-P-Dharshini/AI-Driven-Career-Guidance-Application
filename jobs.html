@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Portal - Grow like a Pro! | AI Career Guidance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="dashboard.html" class="flex items-center">
+            <span style="color: var(--primary);" class="font-bold text-xl">Grow like a Pro!</span>
+          </a>
+        </div>
+
+        <!-- Desktop menu -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Home</a>
+          <a href="dashboard.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Dashboard</a>
+          <a href="assessment.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Assessment</a>
+          <a href="courses.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Courses</a>
+          <a href="jobs.html" class="px-3 py-2 rounded-md text-sm font-medium" style="color: var(--primary); font-weight: 600;">Jobs</a>
+
+          <!-- User dropdown -->
+          <div class="ml-4 relative">
+            <div>
+              <button id="user-menu-button" class="flex items-center text-sm font-medium text-gray-700 hover:text-primary focus:outline-none">
+                <span id="user-name">User</span>
+                <svg class="ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+
+            <div id="user-dropdown" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1">
+              <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
+              <a href="settings.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+              <button id="logout-button" class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-primary focus:outline-none">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Home</a>
+        <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Dashboard</a>
+        <a href="assessment.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Assessment</a>
+        <a href="courses.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Courses</a>
+        <a href="jobs.html" class="block px-3 py-2 rounded-md text-base font-medium" style="color: var(--primary); font-weight: 600;">Jobs</a>
+        <a href="profile.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Profile</a>
+        <a href="settings.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Settings</a>
+        <button id="mobile-logout-button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Sign out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold mb-2">Job Portal</h1>
+      <p class="text-gray-600 mb-8">Find job opportunities that match your skills and career goals.</p>
+
+      <!-- Search and Filter -->
+      <div class="mb-8">
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="flex-grow">
+            <input
+              type="text"
+              id="job-search"
+              placeholder="Search jobs by title, company, or keyword..."
+              class="input-field"
+            >
+          </div>
+          <div class="md:w-1/4">
+            <select id="job-category" class="input-field">
+              <option value="all">All Categories</option>
+              <option value="technology">Technology</option>
+              <option value="business">Business</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="education">Education</option>
+              <option value="design">Design & Creative</option>
+              <option value="marketing">Marketing</option>
+            </select>
+          </div>
+          <div class="md:w-1/4">
+            <select id="job-location" class="input-field">
+              <option value="all">All Locations</option>
+              <option value="remote">Remote</option>
+              <option value="us">United States</option>
+              <option value="europe">Europe</option>
+              <option value="asia">Asia</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Job Listings -->
+      <div class="mb-12">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="section-title mb-0">Job Listings</h2>
+          <div class="flex items-center">
+            <span class="text-sm text-gray-500 mr-2">Sort by:</span>
+            <select id="job-sort" class="text-sm border border-gray-300 rounded-md p-1">
+              <option value="relevance">Relevance</option>
+              <option value="date">Date Posted</option>
+              <option value="salary">Salary</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="job-listings" class="space-y-6">
+          <!-- Job listings will be dynamically added here -->
+        </div>
+      </div>
+
+      <!-- Job Portals Section -->
+      <div class="mb-12">
+        <h2 class="section-title">Top Job Portals</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- LinkedIn -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/2560px-LinkedIn_Logo.svg.png" alt="LinkedIn" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">The world's largest professional network with millions of job listings and networking opportunities.</p>
+            <a href="https://www.linkedin.com/jobs/" target="_blank" class="btn-primary">Search Jobs</a>
+          </div>
+
+          <!-- Indeed -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Indeed_logo.svg/2560px-Indeed_logo.svg.png" alt="Indeed" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">One of the largest job sites with millions of job listings from thousands of websites.</p>
+            <a href="https://www.indeed.com/" target="_blank" class="btn-primary">Search Jobs</a>
+          </div>
+
+          <!-- Glassdoor -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Glassdoor_logo.svg" alt="Glassdoor" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">Find jobs and research companies with employee reviews, salaries, and more.</p>
+            <a href="https://www.glassdoor.com/index.htm" target="_blank" class="btn-primary">Search Jobs</a>
+          </div>
+
+          <!-- AngelList -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/AngelList_logo.svg/1280px-AngelList_logo.svg.png" alt="AngelList" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">The world's largest startup community with jobs at startups and tech companies.</p>
+            <a href="https://angel.co/jobs" target="_blank" class="btn-primary">Search Jobs</a>
+          </div>
+
+          <!-- Remote OK -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://remoteok.com/assets/logo-dark.svg" alt="Remote OK" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">The largest remote work community in the world with remote jobs for developers, designers, and more.</p>
+            <a href="https://remoteok.com/" target="_blank" class="btn-primary">Search Jobs</a>
+          </div>
+
+          <!-- FlexJobs -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <img src="https://www.flexjobs.com/images/flexjobs-logo-sharing.png" alt="FlexJobs" class="h-12 mb-4">
+            <p class="text-gray-600 mb-4">A premium job site for professional remote and flexible jobs, with hand-screened listings.</p>
+            <a href="https://www.flexjobs.com/" target="_blank" class="btn-primary">Search Jobs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Grow like a Pro!</h3>
+          <p class="text-gray-300">
+            AI-powered career guidance for students, job seekers, and professionals.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="text-gray-300 hover:text-white transition-colors">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="dashboard.html" class="text-gray-300 hover:text-white transition-colors">
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="assessment.html" class="text-gray-300 hover:text-white transition-colors">
+                Assessment
+              </a>
+            </li>
+            <li>
+              <a href="courses.html" class="text-gray-300 hover:text-white transition-colors">
+                Courses
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact</h3>
+          <p class="text-gray-300 mb-2">
+            Have questions? Reach out to us.
+          </p>
+          <p class="text-gray-300">
+            Email: support@growlikeapro.com
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
+        <p>&copy; 2023 Grow like a Pro! All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Check if user is logged in
+    if (!auth.checkAuth()) {
+      window.location.href = 'login.html';
+    }
+
+    // Get current user
+    const currentUser = auth.getCurrentUser();
+
+    // Update user name in UI
+    const userName = currentUser.name || 'User';
+    const firstName = userName.split(' ')[0];
+    document.getElementById('user-name').textContent = firstName;
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // User dropdown toggle
+    const userMenuButton = document.getElementById('user-menu-button');
+    const userDropdown = document.getElementById('user-dropdown');
+
+    userMenuButton.addEventListener('click', () => {
+      userDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', (e) => {
+      if (!userMenuButton.contains(e.target) && !userDropdown.contains(e.target)) {
+        userDropdown.classList.add('hidden');
+      }
+    });
+
+    // Logout functionality
+    document.getElementById('logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    document.getElementById('mobile-logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    // Sample job listings
+    const jobs = [
+      {
+        id: 1,
+        title: 'Software Engineer',
+        company: 'TechCorp',
+        location: 'San Francisco, CA',
+        locationType: 'us',
+        type: 'Full-time',
+        salary: '$100,000 - $130,000',
+        posted: '2 days ago',
+        category: 'technology',
+        description: 'We are looking for a skilled Software Engineer to join our team. You will be responsible for developing high-quality applications, collaborating with cross-functional teams, and ensuring the performance and quality of applications.',
+        requirements: [
+          'Bachelor\'s degree in Computer Science or related field',
+          '3+ years of experience in software development',
+          'Proficiency in JavaScript, Python, or Java',
+          'Experience with modern frameworks (React, Angular, Vue)',
+          'Knowledge of database systems and cloud platforms'
+        ],
+        logo: 'https://via.placeholder.com/150'
+      },
+      {
+        id: 2,
+        title: 'Marketing Manager',
+        company: 'BrandBoost',
+        location: 'Remote',
+        locationType: 'remote',
+        type: 'Full-time',
+        salary: '$80,000 - $100,000',
+        posted: '1 week ago',
+        category: 'marketing',
+        description: 'We\'re seeking a Marketing Manager to lead our marketing efforts. You will develop marketing strategies, manage campaigns, and analyze market trends to increase brand awareness and drive growth.',
+        requirements: [
+          'Bachelor\'s degree in Marketing or related field',
+          '5+ years of experience in marketing',
+          'Experience with digital marketing channels',
+          'Strong analytical and project management skills',
+          'Excellent communication and leadership abilities'
+        ],
+        logo: 'https://via.placeholder.com/150'
+      },
+      {
+        id: 3,
+        title: 'Data Scientist',
+        company: 'DataInsights',
+        location: 'London, UK',
+        locationType: 'europe',
+        type: 'Full-time',
+        salary: '£60,000 - £80,000',
+        posted: '3 days ago',
+        category: 'technology',
+        description: 'Join our data science team to analyze complex data sets, build predictive models, and extract actionable insights. You will work closely with product and engineering teams to implement data-driven solutions.',
+        requirements: [
+          'Master\'s or PhD in Statistics, Computer Science, or related field',
+          'Experience with machine learning and statistical analysis',
+          'Proficiency in Python, R, or similar languages',
+          'Knowledge of SQL and database systems',
+          'Strong problem-solving and communication skills'
+        ],
+        logo: 'https://via.placeholder.com/150'
+      },
+      {
+        id: 4,
+        title: 'Registered Nurse',
+        company: 'HealthCare Center',
+        location: 'Chicago, IL',
+        locationType: 'us',
+        type: 'Full-time',
+        salary: '$65,000 - $85,000',
+        posted: '1 day ago',
+        category: 'healthcare',
+        description: 'We are looking for a compassionate Registered Nurse to join our healthcare team. You will provide patient care, administer treatments, and collaborate with physicians and other healthcare professionals.',
+        requirements: [
+          'Bachelor\'s degree in Nursing',
+          'Current RN license',
+          '2+ years of clinical experience',
+          'BLS/ACLS certification',
+          'Strong communication and interpersonal skills'
+        ],
+        logo: 'https://via.placeholder.com/150'
+      },
+      {
+        id: 5,
+        title: 'UX/UI Designer',
+        company: 'DesignHub',
+        location: 'Remote',
+        locationType: 'remote',
+        type: 'Full-time',
+        salary: '$90,000 - $110,000',
+        posted: '5 days ago',
+        category: 'design',
+        description: 'We\'re looking for a talented UX/UI Designer to create intuitive and engaging user experiences. You will design user interfaces, conduct user research, and collaborate with product and development teams.',
+        requirements: [
+          'Bachelor\'s degree in Design, HCI, or related field',
+          '3+ years of experience in UX/UI design',
+          'Proficiency in design tools (Figma, Sketch, Adobe XD)',
+          'Portfolio demonstrating strong design skills',
+          'Knowledge of user-centered design principles'
+        ],
+        logo: 'https://via.placeholder.com/150'
+      },
+      {
+        id: 6,
+        title: 'Elementary School Teacher',
+        company: 'Bright Future Academy',
+        location: 'Boston, MA',
+        locationType: 'us',
+        type: 'Full-time',
+        salary: '$50,000 - $65,000',
+        posted: '1 week ago',
+        category: 'education',
+        description: 'Join our school as an Elementary School Teacher to educate and inspire young students. You will develop lesson plans, assess student progress, and create a positive learning environment.',
+        requirements: [
+          'Bachelor\'s degree in Education',
+          'Teaching certification',
+          'Experience working with elementary school students',
+          'Strong classroom management skills',
+          'Passion for education and student development'
+        ],
+        logo: 'https://via.placeholder.com/150'
+      }
+    ];
+
+    // Display job listings
+    const jobListingsContainer = document.getElementById('job-listings');
+
+    function displayJobs(jobsToDisplay) {
+      // Clear container
+      jobListingsContainer.innerHTML = '';
+
+      if (jobsToDisplay.length === 0) {
+        jobListingsContainer.innerHTML = '<p class="text-center text-gray-500 py-8">No jobs found matching your criteria.</p>';
+        return;
+      }
+
+      // Add jobs to container
+      jobsToDisplay.forEach(job => {
+        const jobCard = document.createElement('div');
+        jobCard.className = 'job-card card hover:shadow-lg transition-shadow border-l-4 border-primary';
+
+        // Create job listing HTML
+        jobCard.innerHTML = `
+          <div class="flex flex-col md:flex-row md:items-start">
+            <div class="md:w-16 md:h-16 mb-4 md:mb-0 md:mr-4 flex-shrink-0">
+              <img src="${job.logo}" alt="${job.company}" class="w-16 h-16 object-contain">
+            </div>
+            <div class="flex-grow">
+              <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                <div>
+                  <h3 class="text-xl font-bold">${job.title}</h3>
+                  <p class="text-gray-600">${job.company} • ${job.location}</p>
+                </div>
+                <div class="mt-2 md:mt-0">
+                  <span class="badge badge-primary">${job.type}</span>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <p class="text-gray-700">${job.description}</p>
+              </div>
+
+              <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                <div>
+                  <span class="text-gray-600 mr-4">Salary: <span class="font-semibold">${job.salary}</span></span>
+                  <span class="text-gray-600">Posted: ${job.posted}</span>
+                </div>
+                <div class="mt-3 md:mt-0">
+                  <button class="btn-primary mr-2" onclick="viewJobDetails(${job.id})">View Details</button>
+                  <button class="btn-secondary" onclick="saveJob(${job.id})">Save Job</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+        jobListingsContainer.appendChild(jobCard);
+      });
+    }
+
+    // Initial display of jobs
+    displayJobs(jobs);
+
+    // Filter jobs based on search and filters
+    const jobSearch = document.getElementById('job-search');
+    const jobCategory = document.getElementById('job-category');
+    const jobLocation = document.getElementById('job-location');
+    const jobSort = document.getElementById('job-sort');
+
+    function filterJobs() {
+      const searchTerm = jobSearch.value.toLowerCase();
+      const category = jobCategory.value;
+      const location = jobLocation.value;
+      const sortBy = jobSort.value;
+
+      // Filter jobs
+      let filteredJobs = jobs.filter(job => {
+        const matchesSearch = job.title.toLowerCase().includes(searchTerm) ||
+                             job.company.toLowerCase().includes(searchTerm) ||
+                             job.description.toLowerCase().includes(searchTerm);
+
+        const matchesCategory = category === 'all' || job.category === category;
+        const matchesLocation = location === 'all' || job.locationType === location;
+
+        return matchesSearch && matchesCategory && matchesLocation;
+      });
+
+      // Sort jobs
+      if (sortBy === 'date') {
+        // Sort by date posted (most recent first)
+        filteredJobs.sort((a, b) => {
+          if (a.posted.includes('day') && b.posted.includes('week')) return -1;
+          if (a.posted.includes('week') && b.posted.includes('day')) return 1;
+
+          const aNum = parseInt(a.posted.split(' ')[0]);
+          const bNum = parseInt(b.posted.split(' ')[0]);
+
+          return aNum - bNum;
+        });
+      } else if (sortBy === 'salary') {
+        // Sort by salary (highest first)
+        filteredJobs.sort((a, b) => {
+          const aMin = parseInt(a.salary.replace(/[^0-9]/g, '').substring(0, 6));
+          const bMin = parseInt(b.salary.replace(/[^0-9]/g, '').substring(0, 6));
+
+          return bMin - aMin;
+        });
+      }
+
+      // Display filtered jobs
+      displayJobs(filteredJobs);
+    }
+
+    jobSearch.addEventListener('input', filterJobs);
+    jobCategory.addEventListener('change', filterJobs);
+    jobLocation.addEventListener('change', filterJobs);
+    jobSort.addEventListener('change', filterJobs);
+
+    // View job details function
+    function viewJobDetails(jobId) {
+      const job = jobs.find(j => j.id === jobId);
+
+      if (!job) return;
+
+      alert(`Job Details: ${job.title} at ${job.company}\n\nDescription: ${job.description}\n\nRequirements:\n${job.requirements.join('\n')}`);
+
+      // In a real application, this would open a modal or navigate to a job details page
+    }
+
+    // Save job function
+    function saveJob(jobId) {
+      alert(`Job saved to your profile!`);
+
+      // In a real application, this would save the job to the user's profile
+    }
+  </script>
+</body>
+</html>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HBSCW05KD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HBSCW05KD');
+</script>
