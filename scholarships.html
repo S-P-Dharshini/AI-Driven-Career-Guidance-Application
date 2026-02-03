@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Government Scholarships | Grow like a Pro!</title>
+  <link rel="stylesheet" href="css/tailwind.css">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #f59e0b;
+      --secondary-dark: #d97706;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .btn-secondary {
+      background-color: var(--secondary);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      font-weight: 500;
+      transition: background-color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--secondary-dark);
+    }
+
+    .section-title {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header class="bg-white shadow-sm">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center">
+          <a href="index.html" class="text-xl font-bold text-gray-800">Grow like a Pro!</a>
+        </div>
+
+        <div class="hidden md:flex space-x-6">
+          <a href="index.html" class="text-gray-600 hover:text-gray-900">Home</a>
+          <a href="dashboard.html" class="text-gray-600 hover:text-gray-900">Dashboard</a>
+          <a href="assessment.html" class="text-gray-600 hover:text-gray-900">Assessment</a>
+          <a href="courses.html" class="text-gray-600 hover:text-gray-900">Courses</a>
+          <a href="jobs.html" class="text-gray-600 hover:text-gray-900">Jobs</a>
+          <a href="scholarships.html" class="text-primary font-medium">Scholarships</a>
+          <a href="wellness.html" class="text-gray-600 hover:text-gray-900">Wellness</a>
+        </div>
+
+        <div class="flex items-center">
+          <!-- User dropdown -->
+          <div class="relative ml-3">
+            <div>
+              <button type="button" class="flex items-center text-sm rounded-full focus:outline-none" id="user-menu-button">
+                <span class="mr-2 text-gray-700" id="user-name">User</span>
+                <img class="h-8 w-8 rounded-full" src="images/avatar.jpg" alt="User avatar">
+              </button>
+            </div>
+
+            <div class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" id="user-dropdown">
+              <a href="dashboard.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Dashboard</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" id="logout-button">Sign out</a>
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button type="button" class="md:hidden ml-3 text-gray-600 hover:text-gray-900 focus:outline-none" id="mobile-menu-button">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div class="hidden md:hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Home</a>
+          <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Dashboard</a>
+          <a href="assessment.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Assessment</a>
+          <a href="courses.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Courses</a>
+          <a href="jobs.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Jobs</a>
+          <a href="scholarships.html" class="block px-3 py-2 rounded-md text-base font-medium text-primary">Scholarships</a>
+          <a href="wellness.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Wellness</a>
+          <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50" id="mobile-logout-button">Sign out</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-10">
+    <div class="container mx-auto px-4">
+      <h1 class="text-3xl font-bold text-center mb-2">Government Scholarship Opportunities</h1>
+      <p class="text-lg text-center text-gray-600 mb-8">
+        Explore scholarships and financial aid programs to support your education
+      </p>
+
+      <!-- National Scholarships Section -->
+      <section class="mb-12">
+        <h2 class="section-title">National Scholarships</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-2">National Scholarship Portal</h3>
+            <p class="text-gray-600 mb-4">A one-stop platform for students to access and apply for multiple scholarship schemes offered by the Central Government, State Governments, and other agencies.</p>
+            <div class="mb-4">
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">All Students</span>
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">Multiple Schemes</span>
+            </div>
+            <div class="mb-4">
+              <p class="text-sm text-gray-600"><strong>Application Period:</strong> Usually July to October</p>
+              <p class="text-sm text-gray-600"><strong>Eligibility:</strong> Varies by scheme</p>
+            </div>
+            <a href="https://scholarships.gov.in/" target="_blank" class="btn-primary">Apply Now</a>
+          </div>
+
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-2">Post Matric Scholarships</h3>
+            <p class="text-gray-600 mb-4">Financial assistance for students belonging to SC, ST, OBC, and minority communities pursuing higher education after completing class 10.</p>
+            <div class="mb-4">
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">SC/ST Students</span>
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">OBC Students</span>
+              <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">Minorities</span>
+            </div>
+            <div class="mb-4">
+              <p class="text-sm text-gray-600"><strong>Benefits:</strong> Course fees, maintenance allowance</p>
+              <p class="text-sm text-gray-600"><strong>Eligibility:</strong> Family income below specified limit</p>
+            </div>
+            <a href="https://socialjustice.gov.in/schemes/post-matric-scholarships" target="_blank" class="btn-primary">Learn More</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tamil Nadu State Scholarships -->
+      <section class="mb-12">
+        <h2 class="section-title">Tamil Nadu State Scholarships</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-2">Tamil Nadu Chief Minister's Merit Scholarship</h3>
+            <p class="text-gray-600 mb-4">Scholarship for meritorious students from economically weaker sections who have secured high marks in their higher secondary examinations.</p>
+            <div class="mb-4">
+              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">Merit-Based</span>
+              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">Tamil Nadu Residents</span>
+            </div>
+            <div class="mb-4">
+              <p class="text-sm text-gray-600"><strong>Amount:</strong> Varies based on course</p>
+              <p class="text-sm text-gray-600"><strong>Eligibility:</strong> Students who scored high marks in 12th standard</p>
+            </div>
+            <a href="https://www.tn.gov.in/scheme/data_view/6853" target="_blank" class="btn-primary">View Details</a>
+          </div>
+
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-2">First Generation Graduate Scholarship</h3>
+            <p class="text-gray-600 mb-4">Special scholarship for students who are the first in their family to pursue higher education.</p>
+            <div class="mb-4">
+              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">First Generation</span>
+              <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full mr-2 mb-2">Tamil Nadu Residents</span>
+            </div>
+            <div class="mb-4">
+              <p class="text-sm text-gray-600"><strong>Benefits:</strong> Tuition fees and special grants</p>
+              <p class="text-sm text-gray-600"><strong>Eligibility:</strong> First graduate in the family</p>
+            </div>
+            <a href="https://www.tn.gov.in/scheme/data_view/19275" target="_blank" class="btn-primary">View Details</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Other Scholarship Programs -->
+      <section class="mb-12">
+        <h2 class="section-title">Other Scholarship Programs</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-2">Prime Minister's Scholarship Scheme</h3>
+            <p class="text-gray-600 mb-4">For the wards of ex-servicemen/ex-coast guards and their widows.</p>
+            <a href="https://www.ksb.gov.in/pmss.htm" target="_blank" class="text-primary hover:underline">Learn More →</a>
+          </div>
+
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-2">INSPIRE Scholarship</h3>
+            <p class="text-gray-600 mb-4">For students pursuing science and technology courses at the undergraduate level.</p>
+            <a href="https://online-inspire.gov.in/" target="_blank" class="text-primary hover:underline">Learn More →</a>
+          </div>
+
+          <div class="card">
+            <h3 class="text-xl font-semibold mb-2">AICTE Pragati Scholarship</h3>
+            <p class="text-gray-600 mb-4">For girl students pursuing technical education through AICTE approved institutions.</p>
+            <a href="https://www.aicte-india.org/schemes/students-development-schemes" target="_blank" class="text-primary hover:underline">Learn More →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Scholarship Application Tips -->
+      <section>
+        <h2 class="section-title">Scholarship Application Tips</h2>
+        <div class="card">
+          <ul class="space-y-4">
+            <li class="flex">
+              <div class="flex-shrink-0">
+                <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="ml-3">
+                <p class="text-gray-700"><strong>Apply Early:</strong> Most scholarships have deadlines. Apply as early as possible to avoid last-minute technical issues.</p>
+              </div>
+            </li>
+            <li class="flex">
+              <div class="flex-shrink-0">
+                <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="ml-3">
+                <p class="text-gray-700"><strong>Prepare Documents:</strong> Keep all required documents ready before starting the application process (income certificate, caste certificate, mark sheets, etc.).</p>
+              </div>
+            </li>
+            <li class="flex">
+              <div class="flex-shrink-0">
+                <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="ml-3">
+                <p class="text-gray-700"><strong>Check Eligibility:</strong> Carefully review the eligibility criteria before applying to ensure you qualify.</p>
+              </div>
+            </li>
+            <li class="flex">
+              <div class="flex-shrink-0">
+                <svg class="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div class="ml-3">
+                <p class="text-gray-700"><strong>Follow Up:</strong> After submitting your application, keep track of its status and follow up if necessary.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Grow like a Pro!</h3>
+          <p class="text-gray-300">
+            AI-powered career guidance for students, job seekers, and professionals.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="text-gray-300 hover:text-white transition-colors">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="dashboard.html" class="text-gray-300 hover:text-white transition-colors">
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="assessment.html" class="text-gray-300 hover:text-white transition-colors">
+                Assessment
+              </a>
+            </li>
+            <li>
+              <a href="courses.html" class="text-gray-300 hover:text-white transition-colors">
+                Courses
+              </a>
+            </li>
+            <li>
+              <a href="jobs.html" class="text-gray-300 hover:text-white transition-colors">
+                Jobs
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact</h3>
+          <p class="text-gray-300 mb-2">
+            Have questions? Reach out to us.
+          </p>
+          <p class="text-gray-300">
+            Email: support@growlikeapro.com
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
+        <p>&copy; 2023 Grow like a Pro! All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Check if user is logged in
+    if (!auth.checkAuth()) {
+      window.location.href = 'login.html';
+    }
+
+    // Get current user
+    const currentUser = auth.getCurrentUser();
+
+    // Update user name in UI
+    const userName = currentUser.name || 'User';
+    const firstName = userName.split(' ')[0];
+    document.getElementById('user-name').textContent = firstName;
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // User dropdown toggle
+    const userMenuButton = document.getElementById('user-menu-button');
+    const userDropdown = document.getElementById('user-dropdown');
+
+    userMenuButton.addEventListener('click', () => {
+      userDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', (e) => {
+      if (!userMenuButton.contains(e.target) && !userDropdown.contains(e.target)) {
+        userDropdown.classList.add('hidden');
+      }
+    });
+
+    // Logout functionality
+    document.getElementById('logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    document.getElementById('mobile-logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HBSCW05KD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HBSCW05KD');
+</script>

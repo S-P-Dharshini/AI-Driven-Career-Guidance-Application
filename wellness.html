@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stress Management - Grow like a Pro! | AI Career Guidance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto px-4">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <a href="dashboard.html" class="flex items-center">
+            <span style="color: var(--primary);" class="font-bold text-xl">Grow like a Pro!</span>
+          </a>
+        </div>
+
+        <!-- Desktop menu -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a href="index.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Home</a>
+          <a href="dashboard.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Dashboard</a>
+          <a href="assessment.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Assessment</a>
+          <a href="courses.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Courses</a>
+          <a href="jobs.html" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-primary">Jobs</a>
+          <a href="wellness.html" class="px-3 py-2 rounded-md text-sm font-medium" style="color: var(--primary); font-weight: 600;">Wellness</a>
+
+          <!-- User dropdown -->
+          <div class="ml-4 relative">
+            <div>
+              <button id="user-menu-button" class="flex items-center text-sm font-medium text-gray-700 hover:text-primary focus:outline-none">
+                <span id="user-name">User</span>
+                <svg class="ml-1 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+
+            <div id="user-dropdown" class="hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 py-1">
+              <a href="profile.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Your Profile</a>
+              <a href="settings.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Settings</a>
+              <button id="logout-button" class="w-full text-left block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Sign out</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-primary focus:outline-none">
+            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden">
+      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Home</a>
+        <a href="dashboard.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Dashboard</a>
+        <a href="assessment.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Assessment</a>
+        <a href="courses.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Courses</a>
+        <a href="jobs.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Jobs</a>
+        <a href="wellness.html" class="block px-3 py-2 rounded-md text-base font-medium" style="color: var(--primary); font-weight: 600;">Wellness</a>
+        <a href="profile.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Profile</a>
+        <a href="settings.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Settings</a>
+        <button id="mobile-logout-button" class="w-full text-left block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-primary">Sign out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold mb-2">Stress Management & Wellness</h1>
+      <p class="text-gray-600 mb-8">Tools and resources to help you manage workplace stress and maintain work-life balance.</p>
+
+      <!-- Stress Assessment -->
+      <div class="mb-12">
+        <div class="card bg-gradient-to-br from-accent/10 to-accent/5">
+          <h2 class="text-2xl font-bold mb-4">Stress Level Assessment</h2>
+          <p class="text-gray-600 mb-6">Take a quick assessment to understand your current stress levels and get personalized recommendations.</p>
+          <button id="start-stress-assessment" class="btn-accent">Start Assessment</button>
+        </div>
+      </div>
+
+      <!-- Quick Stress Relief Techniques -->
+      <div class="mb-12">
+        <h2 class="section-title">Quick Stress Relief Techniques</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Breathing Exercise -->
+          <div class="stress-buster-card card hover:shadow-lg transition-shadow">
+            <div class="text-3xl mb-3">🧘</div>
+            <h3 class="text-xl font-semibold mb-2">Deep Breathing</h3>
+            <p class="text-gray-600 mb-4">A simple breathing exercise to calm your mind and reduce stress in just a few minutes.</p>
+            <button class="btn-accent" onclick="showBreathingExercise()">Try Now</button>
+          </div>
+
+          <!-- Mindfulness -->
+          <div class="stress-buster-card card hover:shadow-lg transition-shadow">
+            <div class="text-3xl mb-3">🧠</div>
+            <h3 class="text-xl font-semibold mb-2">Mindfulness Minute</h3>
+            <p class="text-gray-600 mb-4">A quick mindfulness practice to bring your attention to the present moment and reduce anxiety.</p>
+            <button class="btn-accent" onclick="showMindfulnessExercise()">Try Now</button>
+          </div>
+
+          <!-- Desk Stretches -->
+          <div class="stress-buster-card card hover:shadow-lg transition-shadow">
+            <div class="text-3xl mb-3">🤸</div>
+            <h3 class="text-xl font-semibold mb-2">Desk Stretches</h3>
+            <p class="text-gray-600 mb-4">Simple stretches you can do at your desk to relieve physical tension and boost energy.</p>
+            <button class="btn-accent" onclick="showDeskStretches()">Try Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Work-Life Balance Tips -->
+      <div class="mb-12">
+        <h2 class="section-title">Work-Life Balance Tips</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Set Boundaries -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold mb-2">Set Clear Boundaries</h3>
+            <p class="text-gray-600 mb-4">Establish clear boundaries between work and personal life, especially when working remotely.</p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li>Define specific working hours and stick to them</li>
+              <li>Create a dedicated workspace separate from relaxation areas</li>
+              <li>Turn off work notifications after hours</li>
+              <li>Communicate your boundaries to colleagues and managers</li>
+            </ul>
+          </div>
+
+          <!-- Time Management -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold mb-2">Effective Time Management</h3>
+            <p class="text-gray-600 mb-4">Optimize your time to reduce stress and increase productivity.</p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li>Use time-blocking techniques to schedule focused work</li>
+              <li>Take regular breaks using the Pomodoro Technique</li>
+              <li>Prioritize tasks using the Eisenhower Matrix</li>
+              <li>Learn to delegate and say no when necessary</li>
+            </ul>
+          </div>
+
+          <!-- Self-Care -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold mb-2">Prioritize Self-Care</h3>
+            <p class="text-gray-600 mb-4">Make self-care a non-negotiable part of your routine.</p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li>Schedule regular exercise and movement</li>
+              <li>Maintain a consistent sleep schedule</li>
+              <li>Practice mindfulness or meditation daily</li>
+              <li>Engage in hobbies and activities you enjoy</li>
+            </ul>
+          </div>
+
+          <!-- Digital Detox -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold mb-2">Digital Detox</h3>
+            <p class="text-gray-600 mb-4">Reduce digital overwhelm and screen fatigue.</p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li>Designate tech-free times during your day</li>
+              <li>Use apps to limit screen time and social media usage</li>
+              <li>Practice the 20-20-20 rule for eye strain (every 20 minutes, look at something 20 feet away for 20 seconds)</li>
+              <li>Keep devices out of the bedroom to improve sleep quality</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wellness Resources -->
+      <div class="mb-12">
+        <h2 class="section-title">Recommended Wellness Resources</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Meditation Apps -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold mb-2">Meditation Apps</h3>
+            <p class="text-gray-600 mb-4">Guided meditation and mindfulness practices for stress reduction.</p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li><a href="https://www.headspace.com/" target="_blank" class="text-primary hover:underline">Headspace</a></li>
+              <li><a href="https://www.calm.com/" target="_blank" class="text-primary hover:underline">Calm</a></li>
+              <li><a href="https://insighttimer.com/" target="_blank" class="text-primary hover:underline">Insight Timer</a> (free option)</li>
+            </ul>
+          </div>
+
+          <!-- Fitness Resources -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold mb-2">Fitness Resources</h3>
+            <p class="text-gray-600 mb-4">Exercise options to reduce stress and boost energy.</p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li><a href="https://www.youtube.com/c/yogawithadriene" target="_blank" class="text-primary hover:underline">Yoga with Adriene</a> (free)</li>
+              <li><a href="https://darebee.com/" target="_blank" class="text-primary hover:underline">Darebee</a> (free workouts)</li>
+              <li><a href="https://www.fitnessblender.com/" target="_blank" class="text-primary hover:underline">Fitness Blender</a> (free and paid options)</li>
+            </ul>
+          </div>
+
+          <!-- Mental Health Resources -->
+          <div class="card hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold mb-2">Mental Health Support</h3>
+            <p class="text-gray-600 mb-4">Resources for mental health and professional support.</p>
+            <ul class="list-disc pl-5 space-y-2 text-gray-600">
+              <li><a href="https://www.betterhelp.com/" target="_blank" class="text-primary hover:underline">BetterHelp</a> (online therapy)</li>
+              <li><a href="https://www.talkspace.com/" target="_blank" class="text-primary hover:underline">Talkspace</a> (online therapy)</li>
+              <li><a href="https://www.7cups.com/" target="_blank" class="text-primary hover:underline">7 Cups</a> (free listening service)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Exercise Modals -->
+    <div id="breathing-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div class="bg-white rounded-lg max-w-md w-full p-6">
+        <h3 class="text-xl font-bold mb-4">Deep Breathing Exercise</h3>
+        <div class="text-center mb-6">
+          <div id="breathing-circle" class="w-40 h-40 rounded-full bg-primary/20 mx-auto flex items-center justify-center transition-all duration-4000">
+            <span id="breathing-text" class="text-lg font-medium">Breathe in...</span>
+          </div>
+        </div>
+        <p class="text-gray-600 mb-4">Follow the circle as it expands and contracts. Breathe in as it grows, and out as it shrinks.</p>
+        <div class="flex justify-end">
+          <button class="btn-secondary" onclick="hideBreathingExercise()">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="mindfulness-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div class="bg-white rounded-lg max-w-md w-full p-6">
+        <h3 class="text-xl font-bold mb-4">One-Minute Mindfulness</h3>
+        <p class="text-gray-600 mb-6">Take a minute to focus on the present moment. Follow these simple steps:</p>
+        <ol class="list-decimal pl-5 space-y-2 text-gray-600 mb-6">
+          <li>Sit comfortably and close your eyes</li>
+          <li>Take a deep breath in through your nose</li>
+          <li>Exhale slowly through your mouth</li>
+          <li>Notice the sensations in your body</li>
+          <li>Observe your thoughts without judgment</li>
+          <li>Bring your attention to the sounds around you</li>
+          <li>Return focus to your breathing</li>
+        </ol>
+        <div class="text-center mb-6">
+          <span id="mindfulness-timer" class="text-2xl font-bold">60</span>
+          <span class="text-gray-600">seconds remaining</span>
+        </div>
+        <div class="flex justify-between">
+          <button id="start-mindfulness" class="btn-primary" onclick="startMindfulnessTimer()">Start</button>
+          <button class="btn-secondary" onclick="hideMindfulnessExercise()">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="stretches-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+      <div class="bg-white rounded-lg max-w-md w-full p-6">
+        <h3 class="text-xl font-bold mb-4">Desk Stretches</h3>
+        <div class="space-y-4 mb-6">
+          <div>
+            <h4 class="font-medium">Neck Stretch</h4>
+            <p class="text-gray-600">Gently tilt your head to the right, holding for 10 seconds. Repeat on the left side.</p>
+          </div>
+          <div>
+            <h4 class="font-medium">Shoulder Rolls</h4>
+            <p class="text-gray-600">Roll your shoulders backward 5 times, then forward 5 times.</p>
+          </div>
+          <div>
+            <h4 class="font-medium">Wrist Stretch</h4>
+            <p class="text-gray-600">Extend your arm with palm up, use other hand to gently pull fingers back. Hold 10 seconds, repeat with other hand.</p>
+          </div>
+          <div>
+            <h4 class="font-medium">Seated Spinal Twist</h4>
+            <p class="text-gray-600">Sit tall, place right hand on left knee, twist to the left. Hold 10 seconds, repeat on other side.</p>
+          </div>
+        </div>
+        <div class="flex justify-end">
+          <button class="btn-secondary" onclick="hideDeskStretches()">Close</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4">Grow like a Pro!</h3>
+          <p class="text-gray-300">
+            AI-powered career guidance for students, job seekers, and professionals.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+          <ul class="space-y-2">
+            <li>
+              <a href="index.html" class="text-gray-300 hover:text-white transition-colors">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="dashboard.html" class="text-gray-300 hover:text-white transition-colors">
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="assessment.html" class="text-gray-300 hover:text-white transition-colors">
+                Assessment
+              </a>
+            </li>
+            <li>
+              <a href="courses.html" class="text-gray-300 hover:text-white transition-colors">
+                Courses
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold mb-4">Contact</h3>
+          <p class="text-gray-300 mb-2">
+            Have questions? Reach out to us.
+          </p>
+          <p class="text-gray-300">
+            Email: support@growlikeapro.com
+          </p>
+        </div>
+      </div>
+
+      <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-300">
+        <p>&copy; 2023 Grow like a Pro! All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script>
+    // Check if user is logged in
+    if (!auth.checkAuth()) {
+      window.location.href = 'login.html';
+    }
+
+    // Get current user
+    const currentUser = auth.getCurrentUser();
+
+    // Update user name in UI
+    const userName = currentUser.name || 'User';
+    const firstName = userName.split(' ')[0];
+    document.getElementById('user-name').textContent = firstName;
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // User dropdown toggle
+    const userMenuButton = document.getElementById('user-menu-button');
+    const userDropdown = document.getElementById('user-dropdown');
+
+    userMenuButton.addEventListener('click', () => {
+      userDropdown.classList.toggle('hidden');
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', (e) => {
+      if (!userMenuButton.contains(e.target) && !userDropdown.contains(e.target)) {
+        userDropdown.classList.add('hidden');
+      }
+    });
+
+    // Logout functionality
+    document.getElementById('logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    document.getElementById('mobile-logout-button').addEventListener('click', () => {
+      auth.logout();
+      window.location.href = 'index.html';
+    });
+
+    // Stress Assessment
+    document.getElementById('start-stress-assessment').addEventListener('click', () => {
+      alert('Stress assessment feature coming soon!');
+    });
+
+    // Breathing Exercise
+    function showBreathingExercise() {
+      document.getElementById('breathing-modal').classList.remove('hidden');
+      startBreathingAnimation();
+    }
+
+    function hideBreathingExercise() {
+      document.getElementById('breathing-modal').classList.add('hidden');
+      stopBreathingAnimation();
+    }
+
+    let breathingInterval;
+
+    function startBreathingAnimation() {
+      const circle = document.getElementById('breathing-circle');
+      const text = document.getElementById('breathing-text');
+      let isInhaling = true;
+
+      breathingInterval = setInterval(() => {
+        if (isInhaling) {
+          circle.style.transform = 'scale(1.5)';
+          text.textContent = 'Breathe in...';
+          setTimeout(() => {
+            text.textContent = 'Hold...';
+          }, 4000);
+        } else {
+          circle.style.transform = 'scale(1)';
+          text.textContent = 'Breathe out...';
+        }
+        isInhaling = !isInhaling;
+      }, 6000);
+    }
+
+    function stopBreathingAnimation() {
+      clearInterval(breathingInterval);
+    }
+
+    // Mindfulness Exercise
+    function showMindfulnessExercise() {
+      document.getElementById('mindfulness-modal').classList.remove('hidden');
+    }
+
+    function hideMindfulnessExercise() {
+      document.getElementById('mindfulness-modal').classList.add('hidden');
+      stopMindfulnessTimer();
+    }
+
+    let mindfulnessTimer;
+    let seconds = 60;
+
+    function startMindfulnessTimer() {
+      document.getElementById('start-mindfulness').disabled = true;
+      document.getElementById('start-mindfulness').classList.add('opacity-50');
+
+      mindfulnessTimer = setInterval(() => {
+        seconds--;
+        document.getElementById('mindfulness-timer').textContent = seconds;
+
+        if (seconds <= 0) {
+          stopMindfulnessTimer();
+          document.getElementById('mindfulness-timer').textContent = 'Done!';
+          setTimeout(() => {
+            hideMindfulnessExercise();
+            resetMindfulnessTimer();
+          }, 2000);
+        }
+      }, 1000);
+    }
+
+    function stopMindfulnessTimer() {
+      clearInterval(mindfulnessTimer);
+    }
+
+    function resetMindfulnessTimer() {
+      seconds = 60;
+      document.getElementById('mindfulness-timer').textContent = '60';
+      document.getElementById('start-mindfulness').disabled = false;
+      document.getElementById('start-mindfulness').classList.remove('opacity-50');
+    }
+
+    // Desk Stretches
+    function showDeskStretches() {
+      document.getElementById('stretches-modal').classList.remove('hidden');
+    }
+
+    function hideDeskStretches() {
+      document.getElementById('stretches-modal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8HBSCW05KD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-8HBSCW05KD');
+</script>
